@@ -7,6 +7,7 @@
   <link rel="stylesheet"  href="{{ asset('css/home.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+  </script>
 </head>
 
 <body onload="startTime()">
@@ -34,7 +35,7 @@
           </div>
 
         </div>
-        <div class="card2">
+        <div class="card2" id="myBtn1">
           <div class="containers">
             <div class="icons">
               <img src="{{ asset('img/map.png') }}">
@@ -45,7 +46,7 @@
             </div>
           </div>
         </div>
-        <div class="card3">
+        <div class="card3" id="myBtn2">
           <div class="containers">
             <div class="icons">
               <img src="{{ asset('img/wind.png') }}">
@@ -106,6 +107,31 @@
       </div>
     </div>
   </div>
+  <div id="myModal1" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close1">&times;</span>
+        <h2>Grafik Kecepatan Angin</h2>
+      </div>
+      <div class="modal-body">
+        <canvas id="chart1" height="80px"></canvas>
+      </div>
+    </div>
+  </div>
+  <div id="myModal2" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close2">&times;</span>
+        <h2>Grafik Kecepatan Angin</h2>
+      </div>
+      <div class="modal-body">
+        <canvas id="chart2" height="80px"></canvas>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
@@ -182,6 +208,8 @@ var date = weekday[today.getDay()]+'/'+today.getDate()+'-'+(today.getMonth()+1)+
 }
 
 </script>
+
+<!-- modals -->
 <script>
   // Get the modal
   var modal = document.getElementById("myModal");
@@ -201,6 +229,52 @@ var date = weekday[today.getDay()]+'/'+today.getDate()+'-'+(today.getMonth()+1)+
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
+    }
+  }
+</script>
+<!-- modal2 -->
+<script>
+  // Get the modal
+  var modal1 = document.getElementById("myModal1");
+  // Get the button that opens the modal
+  var btn1 = document.getElementById("myBtn1");
+  // Get the <span> element that closes the modal
+  var span1 = document.getElementsByClassName("close1")[0];
+  // When the user clicks the button, open the modal
+  btn1.onclick = function() {
+    modal1.style.display = "block";
+  }
+  // When the user clicks on <span> (x), close the modal
+  span1.onclick = function() {
+    modal1.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal1.style.display = "none";
+    }
+  }
+</script>
+<!-- modal3 -->
+<script>
+  // Get the modal
+  var modal2 = document.getElementById("myModal2");
+  // Get the button that opens the modal
+  var btn2 = document.getElementById("myBtn2");
+  // Get the <span> element that closes the modal
+  var span2 = document.getElementsByClassName("close2")[0];
+  // When the user clicks the button, open the modal
+  btn2.onclick = function() {
+    modal2.style.display = "block";
+  }
+  // When the user clicks on <span> (x), close the modal
+  span2.onclick = function() {
+    modal2.style.display = "none";
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal1) {
+      modal2.style.display = "none";
     }
   }
 </script>
