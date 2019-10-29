@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AWSController@welcome');
+
+Route::get('/arah_angin', 'AWSController@arah_angin_latest');
+

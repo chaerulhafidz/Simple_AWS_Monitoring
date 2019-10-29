@@ -1,0 +1,1 @@
+{{ $arah_angin_latest->kecepatan }}
