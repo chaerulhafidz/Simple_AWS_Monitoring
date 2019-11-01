@@ -86,7 +86,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Intensitas Cahaya</h4>
-                        <p><span class="uniq">30</span>km/h</p>
+                        <p><span class="uniq" id="testss">30</span>km/h</p>
                     </div>
                 </div>
             </div>

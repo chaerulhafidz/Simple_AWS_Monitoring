@@ -214,3 +214,15 @@ img{
   flex-direction: column;
   justify-content: center;
 }
+
+@media only screen
+  and (max-device-width: 500px){
+    .content-card{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    width: 50%;
+  }
+}
