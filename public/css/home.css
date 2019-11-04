@@ -2,16 +2,20 @@
     margin: 0;
     padding: 0;
 }
+html{
+  /* height: 100%; */
+}
 body{
     background-image: linear-gradient(90deg, #06789e, #32BABC);
+    /* height: 100%; */
 }
 .container{
     width: 100%;
-/*    background: blue;*/
-}
+      background-image: linear-gradient(90deg, #06789e, #32BABC);
+  }
 
 .topbar{
-    background-image: linear-gradient(90deg, #06789e, #32BABC);
+    /* background-image: linear-gradient(90deg, #06789e, #32BABC); */
     height: 80px;
     margin-bottom: 50px;
     display: flex;
@@ -186,7 +190,7 @@ img{
 }
 
 /* The Close Button */
-.close, .close1, .close2 {
+.close, .close1, .close2, .close3, .close4, .close5 {
   color: white;
   float: right;
   font-size: 28px;
@@ -195,7 +199,10 @@ img{
 
 .close:hover,.close:focus,
 .close1:hover,.close1:focus,
-.close2:hover,.close2:focus {
+.close2:hover,.close2:focus,
+.close3:hover,.close3:focus,
+.close4:hover,.close4:focus,
+.close5:hover,.close5:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -213,4 +220,16 @@ img{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media only screen
+  and (max-device-width: 500px){
+    .content-card{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    width: 50%;
+  }
 }
