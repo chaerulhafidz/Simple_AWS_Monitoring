@@ -23,6 +23,7 @@
     </div>
     <div class="content">
         <div class="content-card">
+          <!-- card -->
             <div class="card1" id="myBtn">
                 <div class="containers">
                     <div class="icons">
@@ -42,58 +43,57 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span class="uniq">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq1">30</span>km/h</p>
                     </div>
                 </div>
             </div>
             <div class="card3" id="myBtn2">
                 <div class="containers">
                     <div class="icons">
-                        <img src="{{ asset('img/wind.png') }}">
+                        <img src="{{ asset('img/thermometer.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Suhu</h4>
-                        <p><span class="uniq">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq2">30</span>km/h</p>
                     </div>
                 </div>
             </div>
-            <div class="card4">
+            <div class="card4" id="myBtn3">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/raindrop.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Kelembaban</h4>
-                        <p><span class="uniq">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq3">30</span>km/h</p>
                     </div>
                 </div>
             </div>
-            <div class="card5">
+            <div class="card5" id="myBtn4">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/pressure.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Tekanan Udara</h4>
-                        <p><span class="uniq">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq4">30</span>km/h</p>
                     </div>
                 </div>
             </div>
-            <div class="card6">
+            <div class="card6" id="myBtn5">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/sun.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Intensitas Cahaya</h4>
-                        <p><span class="uniq" id="testss">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq5">30</span>km/h</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- The Modal -->
 <!-- The Modal -->
 <div id="myModal" class="modal">
     <!-- Modal content -->
@@ -112,7 +112,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close1">&times;</span>
-            <h2>Grafik Kecepatan Angin</h2>
+            <h2>Grafik Arah Angin</h2>
         </div>
         <div class="modal-body">
             <canvas id="chart1" height="80px"></canvas>
@@ -124,23 +124,61 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close2">&times;</span>
-            <h2>Grafik Kecepatan Angin</h2>
+            <h2>Grafik Suhu</h2>
         </div>
         <div class="modal-body">
             <canvas id="chart2" height="80px"></canvas>
         </div>
     </div>
 </div>
-
+<div id="myModal3" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close3">&times;</span>
+            <h2>Grafik Kelembaban</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart3" height="80px"></canvas>
+        </div>
+    </div>
+</div>
+<div id="myModal4" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close4">&times;</span>
+            <h2>Grafik Tekanan Udara</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart4" height="80px"></canvas>
+        </div>
+    </div>
+</div>
+<div id="myModal5" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close5">&times;</span>
+            <h2>Grafik Intensitas Cahaya</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart5" height="80px"></canvas>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
+
+<!-- main function -->
 <script>
     const xl = [];
     const yl = [];
 
 
     const ctx = document.getElementById('chart').getContext('2d');
+
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -160,8 +198,7 @@
         }
     });
 
-
-    const url_iss = 'http://api.open-notify.org/iss-now.json';
+    // const url_iss = 'http://api.open-notify.org/iss-now.json';
     const url_aws = 'http://localhost:8000/api/arah_angin'
 
     async function getAWS() {
@@ -185,18 +222,17 @@
                 yl.shift();
             }
         }
-        // //
         myChart.update();
     }
 
-    // initAWS();
+
     getISS();
     getAWS();
     setInterval(getISS, 4000);
     setInterval(getAWS, 4000);
 </script>
 
-
+<!-- calendar and time -->
 <script>
     function startTime() {
         var today = new Date();
@@ -204,19 +240,15 @@
         var m = today.getMinutes();
         var s = today.getSeconds();
 
-
         if (h < 10) {
-            h = "0" + h
+            h = "0" + h;
         }
-        ;
         if (m < 10) {
-            m = "0" + m
+            m = "0" + m;
         }
-        ;
         if (s < 10) {
-            s = "0" + s
+            s = "0" + s;
         }
-        ;
 
         document.getElementById('times').textContent =
             h + ":" + m + ":" + s;
@@ -229,6 +261,7 @@
         weekday[4] = "Kamis";
         weekday[5] = "Jum'at";
         weekday[6] = "Sabtu";
+
         var date = weekday[today.getDay()] + '/' + today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
         document.getElementById('tggl').textContent = date;
         var t = setTimeout(startTime, 500);
@@ -282,7 +315,6 @@
         }
     }
 </script>
-
 <!-- modal3 -->
 <script>
     // Get the modal
@@ -303,6 +335,63 @@
     window.onclick = function (event) {
         if (event.target == modal1) {
             modal2.style.display = "none";
+        }
+    }
+</script>
+<!-- modal4 -->
+<script>
+    // Get the modal
+    var modal3 = document.getElementById("myModal3");
+    var btn3 = document.getElementById("myBtn3");
+    var span3 = document.getElementsByClassName("close3")[0];
+
+    btn3.onclick = function () {
+        modal3.style.display = "block";
+    }
+    span3.onclick = function () {
+        modal3.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal3.style.display = "none";
+        }
+    }
+</script>
+<!-- modal5 -->
+<script>
+    // Get the modal
+    var modal4 = document.getElementById("myModal4");
+    var btn4 = document.getElementById("myBtn4");
+    var span4 = document.getElementsByClassName("close4")[0];
+
+    btn4.onclick = function () {
+        modal4.style.display = "block";
+    }
+    span4.onclick = function () {
+        modal4.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal4.style.display = "none";
+        }
+    }
+</script>
+<!-- modal6 -->
+<script>
+    // Get the modal
+    var modal5 = document.getElementById("myModal5");
+    var btn5 = document.getElementById("myBtn5");
+    var span5 = document.getElementsByClassName("close5")[0];
+
+    btn5.onclick = function () {
+        modal5.style.display = "block";
+    }
+    span5.onclick = function () {
+        modal5.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal5.style.display = "none";
         }
     }
 </script>
