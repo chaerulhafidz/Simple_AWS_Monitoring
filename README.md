@@ -1,4 +1,4 @@
-<p align="center"><img src="https://images.techhive.com/images/article/2015/05/aws-logo-100584713-primary.idge.jpg" width="400"></p>
+<p align="center"><img src="https://raws.nifc.gov/themes/custom/raws/assets/img/agency.svg" width="250"></p>
 
 
 ## Mengenai Website Monitoring AWS (Automated Weathering Station)
