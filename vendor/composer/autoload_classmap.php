@@ -6,8 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\ArahAngin' => $baseDir . '/app/ArahAngin.php',
+    'App\\ArahAnginHarian' => $baseDir . '/app/ArahAnginHarian.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\API\\AWSController' => $baseDir . '/app/Http/Controllers/API/AWSController.php',
+    'App\\Http\\Controllers\\AWSController' => $baseDir . '/app/Http/Controllers/AWSController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -934,6 +938,7 @@ return array(
     'Illuminate\\Console\\Events\\CommandFinished' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Events/CommandFinished.php',
     'Illuminate\\Console\\Events\\CommandStarting' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Events/CommandStarting.php',
     'Illuminate\\Console\\Events\\ScheduledTaskFinished' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Events/ScheduledTaskFinished.php',
+    'Illuminate\\Console\\Events\\ScheduledTaskSkipped' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Events/ScheduledTaskSkipped.php',
     'Illuminate\\Console\\Events\\ScheduledTaskStarting' => $vendorDir . '/laravel/framework/src/Illuminate/Console/Events/ScheduledTaskStarting.php',
     'Illuminate\\Console\\GeneratorCommand' => $vendorDir . '/laravel/framework/src/Illuminate/Console/GeneratorCommand.php',
     'Illuminate\\Console\\OutputStyle' => $vendorDir . '/laravel/framework/src/Illuminate/Console/OutputStyle.php',

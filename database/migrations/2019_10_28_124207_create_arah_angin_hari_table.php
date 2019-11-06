@@ -13,9 +13,9 @@ class CreateArahAnginHariTable extends Migration
      */
     public function up()
     {
-        Schema::create('arah_angin_hari', function (Blueprint $table) {
+        Schema::create('arah_angin_harian', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('rata-rata');
+            $table->string('rata_rata');
             $table->dateTime('tanggal');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateArahAnginHariTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arah_angin_hari');
+        Schema::dropIfExists('arah_angin_harian');
     }
 }

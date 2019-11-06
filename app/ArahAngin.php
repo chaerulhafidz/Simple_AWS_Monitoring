@@ -9,6 +9,6 @@ class ArahAngin extends Model
     protected $table = 'arah_angin';
 
     protected $fillable = [
-      'kecepatan', 'tanggal'
+      'nilai', 'tanggal'
     ];
 }

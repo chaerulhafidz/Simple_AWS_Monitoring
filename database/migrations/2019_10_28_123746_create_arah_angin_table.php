@@ -15,7 +15,7 @@ class CreateArahAnginTable extends Migration
     {
         Schema::create('arah_angin', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kecepatan');
+            $table->string('nilai');
             $table->dateTime('tanggal');
             $table->timestamps();
         });

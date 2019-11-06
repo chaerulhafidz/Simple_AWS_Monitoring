@@ -23,7 +23,7 @@
     </div>
     <div class="content">
         <div class="content-card">
-          <!-- card -->
+            <!-- card -->
             <div class="card1" id="myBtn">
                 <div class="containers">
                     <div class="icons">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kecepatan Angin</h4>
-                        <p><span class="uniq" id="uniq">{{ $arah_angin_latest->kecepatan }}</span>km/h</p>
+                        <p><span class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span class="uniq" id="uniq1">30</span>km/h</p>
+                        <p><span class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
             </div>
@@ -54,18 +54,18 @@
                     </div>
                     <div class="textnya">
                         <h4>Suhu</h4>
-                        <p><span class="uniq" id="uniq2">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq2">{{ $suhu }}° </span>Celsius</p>
                     </div>
                 </div>
             </div>
-            <div class="card4" id="myBtn3">
+                <div class="card4" id="myBtn3">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/raindrop.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Kelembaban</h4>
-                        <p><span class="uniq" id="uniq3">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq3">{{ $kelembaban }} </span>RH</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Tekanan Udara</h4>
-                        <p><span class="uniq" id="uniq4">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq4">{{ $tekanan_udara }} </span>mmHg</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Intensitas Cahaya</h4>
-                        <p><span class="uniq" id="uniq5">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq5">{{ $intensitas_cahaya }} </span>Cd</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: xl,
             datasets: [{
-                label: 'Global Average Temprature in C°',
+                label: 'Global Average Temperature in C°',
                 data: yl,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
@@ -204,7 +204,7 @@
     async function getAWS() {
         const response = await fetch(url_aws);
         const data = await response.json();
-        document.getElementById('uniq').textContent = data.arah_angin_latest;
+        document.getElementById('uniq').textContent = data.latest;
     }
 
     async function getISS() {
@@ -212,8 +212,8 @@
         const data = await response.json();
 
         for (var i = 0; i < 5; i++) {
-            xl.push(data.arah_angin[i].tanggal);
-            yl.push(data.arah_angin[i].kecepatan);
+            xl.push(data.array[i].tanggal);
+            yl.push(data.array[i].nilai);
         }
 
         if (xl.length > 5) {
