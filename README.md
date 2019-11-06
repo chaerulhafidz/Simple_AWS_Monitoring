@@ -34,7 +34,7 @@ php artisan key:generate
 ```
 php artisan migrate
 ```
-- Jalankan server local (default [localhost:8000](http://localhost:8000/):
+- Jalankan server local (default [localhost:8000](http://localhost:8000/)):
 ```
 php artisan serve
 ```
