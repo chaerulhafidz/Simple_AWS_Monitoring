@@ -70,7 +70,9 @@ p{
     flex-wrap: wrap;
     justify-content: center;
 }
-.card1, .card2, .card3, .card4, .card5, .card6 {
+.card1, .card2, .card3,
+.card4, .card5, .card6,
+.card7, .card8, .card9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   background: #06789e;
   height: 200px;
@@ -93,17 +95,19 @@ p{
 .card3{
     background: #5eb0f2;
 }
-.card4{
+.card4, .card8{
     background: #32BABC;
 }
-.card5{
+.card5, .card9{
     background: #5eb0f2;
 }
-.card6{
+.card6, .card7{
     background: #06789e;
 }
 
-.card1:hover, .card2:hover, .card3:hover, .card4:hover, .card5:hover, .card6:hover {
+.card1:hover, .card2:hover, .card3:hover,
+.card4:hover, .card5:hover, .card6:hover,
+.card7:hover, .card8:hover, .card9:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
     transform: scale(1.04);
 }
@@ -145,6 +149,7 @@ img{
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
 /*  padding-top: 100px;  Location of the box */
+  font-family: 'Open Sans', sans-serif;
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -190,7 +195,9 @@ img{
 }
 
 /* The Close Button */
-.close, .close1, .close2, .close3, .close4, .close5 {
+.close, .close1, .close2,
+.close3, .close4, .close5,
+.close6, .close7, .close8{
   color: white;
   float: right;
   font-size: 28px;
@@ -202,7 +209,10 @@ img{
 .close2:hover,.close2:focus,
 .close3:hover,.close3:focus,
 .close4:hover,.close4:focus,
-.close5:hover,.close5:focus {
+.close5:hover,.close5:focus,
+.close6:hover,.close6:focus,
+.close7:hover,.close7:focus,
+.close8:hover,.close8:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
@@ -219,7 +229,6 @@ img{
   padding: 2px 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 @media only screen
@@ -229,7 +238,43 @@ img{
       justify-content: center;
       align-items: center;
   }
-  .card1, .card2, .card3, .card4, .card5, .card6 {
+  .card1, .card2, .card3,
+  .card4,.card5, .card6,
+  .card7,.card8, .card9 {
     width: 50%;
   }
+}
+
+.historiClass{
+  margin-bottom: 20px;
+}
+.historiClass-inner{
+  margin-top: 15px;
+}
+
+.histori-card{
+  width: 150px;
+  height: 200px;
+  background-image: linear-gradient(90deg, #06789e, #32BABC);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* color: white; */
+}
+.histori-card h3{
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.histori-card h3 span{
+  font-size: 40px;
+  font-weight: 400;
+}
+.histori-card p{
+  font-size: 14px;
+  text-align: center;;
+  width: 100%;
+  color: white;
 }
