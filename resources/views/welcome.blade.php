@@ -91,6 +91,39 @@
                     </div>
                 </div>
             </div>
+            <div class="card7" id="myBtn6">
+                <div class="containers">
+                    <div class="icons">
+                        <img src="{{ asset('img/smoke.png') }}">
+                    </div>
+                    <div class="textnya">
+                        <h4>Kualitas Udara</h4>
+                        <p><span class="uniq" id="uniq6">30</span>km/h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card8" id="myBtn7">
+                <div class="containers">
+                    <div class="icons">
+                        <img src="{{ asset('img/rainsdrops.png') }}">
+                    </div>
+                    <div class="textnya">
+                        <h4>Kondisi</h4>
+                        <p><span class="uniq" id="uniq7">30</span>km/h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card9" id="myBtn8">
+                <div class="containers">
+                    <div class="icons">
+                        <img src="{{ asset('img/height.png') }}">
+                    </div>
+                    <div class="textnya">
+                        <h4>Ketinggian Alat</h4>
+                        <p><span class="uniq" id="uniq8">30</span>km/h</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -104,6 +137,15 @@
         </div>
         <div class="modal-body">
             <canvas id="chart" height="80px"></canvas>
+            <div class="historiClass">
+              <h1>Histori</h1>
+              <div class="historiClass-inner">
+                <div class="histori-card">
+                  <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
+                  <p id="tgglHistori1">20/10/2019</p>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
@@ -164,6 +206,42 @@
         </div>
         <div class="modal-body">
             <canvas id="chart5" height="80px"></canvas>
+        </div>
+    </div>
+</div>
+<div id="myModal6" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close6">&times;</span>
+            <h2>Grafik Kualitas Udara</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart6" height="80px"></canvas>
+        </div>
+    </div>
+</div>
+<div id="myModal7" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close7">&times;</span>
+            <h2>Grafik Kondisi</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart7" height="80px"></canvas>
+        </div>
+    </div>
+</div>
+<div id="myModal8" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close8">&times;</span>
+            <h2>Grafik Ketinggian</h2>
+        </div>
+        <div class="modal-body">
+            <canvas id="chart8" height="80px"></canvas>
         </div>
     </div>
 </div>
@@ -392,6 +470,63 @@
     window.onclick = function (event) {
         if (event.target == modal1) {
             modal5.style.display = "none";
+        }
+    }
+</script>
+<!-- modal7 -->
+<script>
+    // Get the modal
+    var modal6 = document.getElementById("myModal6");
+    var btn6 = document.getElementById("myBtn6");
+    var span6 = document.getElementsByClassName("close6")[0];
+
+    btn6.onclick = function () {
+        modal6.style.display = "block";
+    }
+    span6.onclick = function () {
+        modal6.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal6.style.display = "none";
+        }
+    }
+</script>
+<!-- modal8 -->
+<script>
+    // Get the modal
+    var modal7 = document.getElementById("myModal7");
+    var btn7 = document.getElementById("myBtn7");
+    var span7 = document.getElementsByClassName("close7")[0];
+
+    btn7.onclick = function () {
+        modal7.style.display = "block";
+    }
+    span7.onclick = function () {
+        modal7.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal1) {
+            modal7.style.display = "none";
+        }
+    }
+</script>
+<!-- modal9 -->
+<script>
+    // Get the modal
+    var modal8 = document.getElementById("myModal8");
+    var btn8 = document.getElementById("myBtn8");
+    var span8 = document.getElementsByClassName("close8")[0];
+
+    btn8.onclick = function () {
+        modal8.style.display = "block";
+    }
+    span8.onclick = function () {
+        modal8.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal8.style.display = "none";
         }
     }
 </script>
