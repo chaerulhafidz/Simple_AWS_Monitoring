@@ -123,6 +123,7 @@ p{
   flex-direction: row;
   justify-content: flex-start;
 }
+
 img{
     max-height: 70px;
     max-width: 70px;
@@ -232,7 +233,7 @@ img{
 }
 
 @media only screen
-  and (max-device-width: 500px){
+  and (max-device-width: 550px){
     .content-card{
       flex-direction: column;
       justify-content: center;

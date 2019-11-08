@@ -31,7 +31,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kecepatan Angin</h4>
-                        <p><span class="uniq">Coming </span>Soon</p>
+                        <p><span id="uniq" class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span class="uniq">Coming </span>Soon</p>
+                        <p><span id="uniq1" class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
             </div>
@@ -54,11 +54,11 @@
                     </div>
                     <div class="textnya">
                         <h4>Suhu</h4>
-                        <p><span class="uniq" id="uniq2">{{ $suhu }}° </span>Celsius</p>
+                        <p><span class="uniq" id="uniq2">{{ $suhu }}</span>°Celsius</p>
                     </div>
                 </div>
             </div>
-                <div class="card4" id="myBtn3">
+            <div class="card4" id="myBtn3">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/raindrop.png') }}">
@@ -209,6 +209,7 @@
         </div>
     </div>
 </div>
+
 <div id="myModal6" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
@@ -249,22 +250,119 @@
 
 </html>
 
-<!-- main function -->
+<!-- url -->
 <script>
-    const xl = [];
-    const yl = [];
+    const url_arahAngin = 'http://127.0.0.1:8000/api/arah_angin';
+    const url_intensitasCahaya = 'http://127.0.0.1:8000/api/intensitas_cahaya';
+    const url_kelembaban = 'http://127.0.0.1:8000/api/kelembaban';
+    const url_ketinggian = 'http://127.0.0.1:8000/api/ketinggian';
+    const url_kondisiCuaca = 'http://127.0.0.1:8000/api/kondisi_cuaca';
+    const url_kualitasUdara = 'http://127.0.0.1:8000/api/kualitas_udara';
+    const url_tekananUdara = 'http://127.0.0.1:8000/api/tekanan_udara';
+    const url_suhu = 'http://127.0.0.1:8000/api/suhu';
+</script>
 
+<!-- main function -->
+<!-- arah_angin -->
+<script>
+    const x = []; const y = [];
 
-    const ctx = document.getElementById('chart').getContext('2d');
+    const x1 = []; const y1 = [];
+    const x2 = []; const y2 = [];
+    const x3 = []; const y3 = [];
+    const x4 = []; const y4 = [];
+    const x5 = []; const y5 = [];
+    const x6 = []; const y6 = [];
 
-    const myChart = new Chart(ctx, {
+    const x7 = []; const y7 = [];
+    const x8 = []; const y8 = [];
+
+    // chart
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
         type: 'line',
         data: {
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            labels: xl,
+            labels: x1,
             datasets: [{
                 label: 'Global Average Temperature in C°',
-                data: yl,
+                data: y1,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x2,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y2,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx3 = document.getElementById('chart3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x3,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y3,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx4 = document.getElementById('chart4').getContext('2d');
+    const myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x4,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y4,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx5 = document.getElementById('chart5').getContext('2d');
+    const myChart5 = new Chart(ctx5, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x5,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y5,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
                 borderWidth: 1,
@@ -276,39 +374,200 @@
         }
     });
 
-    // const url_iss = 'http://api.open-notify.org/iss-now.json';
-    const url_aws = 'http://localhost:8000/api/arah_angin'
+    const ctx6 = document.getElementById('chart6').getContext('2d');
+    const myChart6 = new Chart(ctx6, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x6,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y6,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+</script>
 
-    async function getAWS() {
-        const response = await fetch(url_aws);
-        const data = await response.json();
-        document.getElementById('uniq').textContent = data.latest;
-    }
+<!-- syncronous -->
+<script>
+    // async function getKecepatanAngin() {}
+    async function getArahAngin() {
+        const response1 = await fetch(url_arahAngin);
+        const data1 = await response1.json();
 
-    async function getISS() {
-        const response = await fetch(url_aws);
-        const data = await response.json();
+        document.getElementById('uniq1').textContent = data1.latest;
 
         for (var i = 0; i < 5; i++) {
-            xl.push(data.array[i].tanggal);
-            yl.push(data.array[i].nilai);
+            x1.push(data1.array[i].tanggal);
+            y1.push(data1.array[i].nilai);
         }
 
-        if (xl.length > 5) {
+        if (x1.length > 5) {
             for (var i = 0; i < 5; i++) {
-                xl.shift();
-                yl.shift();
+                x1.shift();
+                y1.shift();
             }
         }
-        myChart.update();
+        myChart1.update();
+    }
+    async function getSuhu() {
+        const response2 = await fetch(url_suhu);
+        const data2 = await response2.json();
+
+        document.getElementById('uniq2').textContent = data2.latest;
+
+        for (var i = 0; i < 5; i++) {
+            x2.push(data2.array[i].tanggal);
+            y2.push(data2.array[i].nilai);
+        }
+
+        if (x2.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                x2.shift();
+                y2.shift();
+            }
+        }
+        myChart2.update();
+    }
+    async function getKelembaban() {
+        const response3 = await fetch(url_kelembaban);
+        const data3 = await response3.json();
+
+        document.getElementById('uniq3').textContent = data3.latest;
+
+        for (var i = 0; i < 5; i++) {
+            x3.push(data3.array[i].tanggal);
+            y3.push(data3.array[i].nilai);
+        }
+
+        if (x3.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                x3.shift();
+                y3.shift();
+            }
+        }
+        myChart3.update();
+    }
+    async function getTekananUdara() {
+        const response4 = await fetch(url_tekananUdara);
+        const data4 = await response4.json();
+
+        document.getElementById('uniq4').textContent = data4.latest;
+
+        for (var i = 0; i < 5; i++) {
+            x4.push(data4.array[i].tanggal);
+            y4.push(data4.array[i].nilai);
+        }
+
+        if (x4.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                x4.shift();
+                y4.shift();
+            }
+        }
+        myChart4.update();
+    }
+    async function getIntensitasCahaya() {
+        const response5 = await fetch(url_intensitasCahaya);
+        const data5 = await response5.json();
+
+        document.getElementById('uniq5').textContent = data5.latest;
+
+        for (var i = 0; i < 5; i++) {
+            x5.push(data5.array[i].tanggal);
+            y5.push(data5.array[i].nilai);
+        }
+
+        if (x5.length > 5) {
+            for (var i = 0; i < 5; i++) {
+                x5.shift();
+                y5.shift();
+            }
+        }
+        myChart5.update();
+    }
+
+    async function getKualitasUdara() {
+        const response = await fetch(url_kualitasUdara);
+        const data = await response.json();
+        //
+        // document.getElementById('uniq1').textContent = data.latest;
+        //
+        // for (var i = 0; i < 5; i++) {
+        //     xl.push(data.array[i].tanggal);
+        //     yl.push(data.array[i].nilai);
+        // }
+        //
+        // if (xl.length > 5) {
+        //     for (var i = 0; i < 5; i++) {
+        //         xl.shift();
+        //         yl.shift();
+        //     }
+        // }
+        // myChart.update();
+    }
+    async function getKondisi() {
+        const response = await fetch(kondisi_cuaca);
+        const data = await response.json();
+        //
+        // document.getElementById('uniq1').textContent = data.latest;
+        //
+        // for (var i = 0; i < 5; i++) {
+        //     xl.push(data.array[i].tanggal);
+        //     yl.push(data.array[i].nilai);
+        // }
+        //
+        // if (xl.length > 5) {
+        //     for (var i = 0; i < 5; i++) {
+        //         xl.shift();
+        //         yl.shift();
+        //     }
+        // }
+        // myChart.update();
+    }
+    async function getKetinggianAlat() {
+        const response = await fetch(url_ketinggian);
+        const data = await response.json();
+        //
+        // document.getElementById('uniq1').textContent = data.latest;
+        //
+        // for (var i = 0; i < 5; i++) {
+        //     xl.push(data.array[i].tanggal);
+        //     yl.push(data.array[i].nilai);
+        // }
+        //
+        // if (xl.length > 5) {
+        //     for (var i = 0; i < 5; i++) {
+        //         xl.shift();
+        //         yl.shift();
+        //     }
+        // }
+        // myChart.update();
     }
 
 
-    getISS();
-    getAWS();
-    setInterval(getISS, 4000);
-    setInterval(getAWS, 4000);
+
+
+    getArahAngin();
+    setInterval(getArahAngin, 4000);
+    getSuhu();
+    setInterval(getSuhu, 4000);
+    getKelembaban();
+    setInterval(getKelembaban, 4000);
+    getTekananUdara();
+    setInterval(getTekananUdara, 4000);
+    getIntensitasCahaya();
+    setInterval(getIntensitasCahaya, 4000);
 </script>
+
+
 
 <!-- calendar and time -->
 <script>
