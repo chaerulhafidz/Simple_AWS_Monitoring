@@ -43,7 +43,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span id="uniq1" class="uniq">Coming </span>Soon</p>
+                        <p><span id="uniq1" class="uniq">Coming</span> Soon</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kelembaban</h4>
-                        <p><span class="uniq" id="uniq3">{{ $kelembaban }} </span>RH</p>
+                        <p><span class="uniq" id="uniq3">{{ $kelembaban }}</span>RH</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Tekanan Udara</h4>
-                        <p><span class="uniq" id="uniq4">{{ $tekanan_udara }} </span>mmHg</p>
+                        <p><span class="uniq" id="uniq4">{{ $tekanan_udara }}</span>mmHg</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Intensitas Cahaya</h4>
-                        <p><span class="uniq" id="uniq5">{{ $intensitas_cahaya }} </span>Cd</p>
+                        <p><span class="uniq" id="uniq5">{{ $intensitas_cahaya }}</span>Cd</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kualitas Udara</h4>
-                        <p><span class="uniq" id="uniq6">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq6">30</span></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kondisi</h4>
-                        <p><span class="uniq" id="uniq7">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq7">30</span></p>
                     </div>
                 </div>
             </div>
@@ -141,8 +141,8 @@
               <h1>Histori</h1>
               <div class="historiClass-inner">
                 <div class="histori-card">
-                  <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
-                  <p id="tgglHistori1">20/10/2019</p>
+                  <h3><span class="histori-span" id="histori">32</span>km/h</h3>
+                  <p id="tgglHistori">20/10/2019</p>
                 </div>
             </div>
             </div>
@@ -158,6 +158,15 @@
         </div>
         <div class="modal-body">
             <canvas id="chart1" height="80px"></canvas>
+            <div class="historiClass">
+              <h1>Histori</h1>
+              <div class="historiClass-inner">
+                <div class="histori-card">
+                  <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
+                  <p id="tgglHistori1">20/10/2019</p>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
@@ -250,20 +259,6 @@
 
 </html>
 
-<!-- url -->
-<script>
-    const url_arahAngin = 'http://127.0.0.1:8000/api/arah_angin';
-    const url_intensitasCahaya = 'http://127.0.0.1:8000/api/intensitas_cahaya';
-    const url_kelembaban = 'http://127.0.0.1:8000/api/kelembaban';
-    const url_ketinggian = 'http://127.0.0.1:8000/api/ketinggian';
-    const url_kondisiCuaca = 'http://127.0.0.1:8000/api/kondisi_cuaca';
-    const url_kualitasUdara = 'http://127.0.0.1:8000/api/kualitas_udara';
-    const url_tekananUdara = 'http://127.0.0.1:8000/api/tekanan_udara';
-    const url_suhu = 'http://127.0.0.1:8000/api/suhu';
-</script>
-
-<!-- main function -->
-<!-- arah_angin -->
 <script>
     const x = []; const y = [];
 
@@ -395,179 +390,8 @@
     });
 </script>
 
-<!-- syncronous -->
-<script>
-    // async function getKecepatanAngin() {}
-    async function getArahAngin() {
-        const response1 = await fetch(url_arahAngin);
-        const data1 = await response1.json();
-
-        document.getElementById('uniq1').textContent = data1.latest;
-
-        for (var i = 0; i < 5; i++) {
-            x1.push(data1.array[i].tanggal);
-            y1.push(data1.array[i].nilai);
-        }
-
-        if (x1.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                x1.shift();
-                y1.shift();
-            }
-        }
-        myChart1.update();
-    }
-    async function getSuhu() {
-        const response2 = await fetch(url_suhu);
-        const data2 = await response2.json();
-
-        document.getElementById('uniq2').textContent = data2.latest;
-
-        for (var i = 0; i < 5; i++) {
-            x2.push(data2.array[i].tanggal);
-            y2.push(data2.array[i].nilai);
-        }
-
-        if (x2.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                x2.shift();
-                y2.shift();
-            }
-        }
-        myChart2.update();
-    }
-    async function getKelembaban() {
-        const response3 = await fetch(url_kelembaban);
-        const data3 = await response3.json();
-
-        document.getElementById('uniq3').textContent = data3.latest;
-
-        for (var i = 0; i < 5; i++) {
-            x3.push(data3.array[i].tanggal);
-            y3.push(data3.array[i].nilai);
-        }
-
-        if (x3.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                x3.shift();
-                y3.shift();
-            }
-        }
-        myChart3.update();
-    }
-    async function getTekananUdara() {
-        const response4 = await fetch(url_tekananUdara);
-        const data4 = await response4.json();
-
-        document.getElementById('uniq4').textContent = data4.latest;
-
-        for (var i = 0; i < 5; i++) {
-            x4.push(data4.array[i].tanggal);
-            y4.push(data4.array[i].nilai);
-        }
-
-        if (x4.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                x4.shift();
-                y4.shift();
-            }
-        }
-        myChart4.update();
-    }
-    async function getIntensitasCahaya() {
-        const response5 = await fetch(url_intensitasCahaya);
-        const data5 = await response5.json();
-
-        document.getElementById('uniq5').textContent = data5.latest;
-
-        for (var i = 0; i < 5; i++) {
-            x5.push(data5.array[i].tanggal);
-            y5.push(data5.array[i].nilai);
-        }
-
-        if (x5.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                x5.shift();
-                y5.shift();
-            }
-        }
-        myChart5.update();
-    }
-
-    async function getKualitasUdara() {
-        const response = await fetch(url_kualitasUdara);
-        const data = await response.json();
-        //
-        // document.getElementById('uniq1').textContent = data.latest;
-        //
-        // for (var i = 0; i < 5; i++) {
-        //     xl.push(data.array[i].tanggal);
-        //     yl.push(data.array[i].nilai);
-        // }
-        //
-        // if (xl.length > 5) {
-        //     for (var i = 0; i < 5; i++) {
-        //         xl.shift();
-        //         yl.shift();
-        //     }
-        // }
-        // myChart.update();
-    }
-    async function getKondisi() {
-        const response = await fetch(kondisi_cuaca);
-        const data = await response.json();
-        //
-        // document.getElementById('uniq1').textContent = data.latest;
-        //
-        // for (var i = 0; i < 5; i++) {
-        //     xl.push(data.array[i].tanggal);
-        //     yl.push(data.array[i].nilai);
-        // }
-        //
-        // if (xl.length > 5) {
-        //     for (var i = 0; i < 5; i++) {
-        //         xl.shift();
-        //         yl.shift();
-        //     }
-        // }
-        // myChart.update();
-    }
-    async function getKetinggianAlat() {
-        const response = await fetch(url_ketinggian);
-        const data = await response.json();
-        //
-        // document.getElementById('uniq1').textContent = data.latest;
-        //
-        // for (var i = 0; i < 5; i++) {
-        //     xl.push(data.array[i].tanggal);
-        //     yl.push(data.array[i].nilai);
-        // }
-        //
-        // if (xl.length > 5) {
-        //     for (var i = 0; i < 5; i++) {
-        //         xl.shift();
-        //         yl.shift();
-        //     }
-        // }
-        // myChart.update();
-    }
-
-
-
-
-    getArahAngin();
-    setInterval(getArahAngin, 4000);
-    getSuhu();
-    setInterval(getSuhu, 4000);
-    getKelembaban();
-    setInterval(getKelembaban, 4000);
-    getTekananUdara();
-    setInterval(getTekananUdara, 4000);
-    getIntensitasCahaya();
-    setInterval(getIntensitasCahaya, 4000);
-</script>
-
-
+<!-- api -->
+<script type="text/javascript" src="{{ asset('js/api.js') }}"></script>
 
 <!-- calendar and time -->
 <script>
