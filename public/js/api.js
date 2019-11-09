@@ -10,99 +10,123 @@ const url_tekananUdara = 'http://127.0.0.1:8000/api/tekanan_udara';
 const url_suhu = 'http://127.0.0.1:8000/api/suhu';
 
 // async function getKecepatanAngin() {}
+let firstTime1 = true;
 async function getArahAngin() {
     const response1 = await fetch(url_arahAngin);
     const data1 = await response1.json();
 
     document.getElementById('uniq1').textContent = data1.latest;
 
-    for (var i = 0; i < 5; i++) {
-        x1.push(data1.array[i].tanggal);
-        y1.push(data1.array[i].nilai);
-    }
-
-    if (x1.length > 5) {
-        for (var i = 0; i < 5; i++) {
+    if(firstTime1){
+      for (var i = 0; i < 5; i++) {
+          x1.push(data1.array[i].tanggal);
+          y1.push(data1.array[i].nilai);
+      }
+      firstTime1 = false;
+    } else{
+      x1.push(data1.array[0].tanggal);
+      y1.push(data1.array[0].nilai);
+      if (x1.length > 5) {
             x1.shift();
             y1.shift();
-        }
+      }
     }
+
     myChart1.update();
 }
+let firstTime2 = true;
 async function getSuhu() {
     const response2 = await fetch(url_suhu);
     const data2 = await response2.json();
 
     document.getElementById('uniq2').textContent = data2.latest;
 
-    for (var i = 0; i < 5; i++) {
-        x2.push(data2.array[i].tanggal);
-        y2.push(data2.array[i].nilai);
-    }
-
-    if (x2.length > 5) {
-        for (var i = 0; i < 5; i++) {
+    if(firstTime2){
+      for (var i = 0; i < 5; i++) {
+          x2.push(data2.array[i].tanggal);
+          y2.push(data2.array[i].nilai);
+      }
+      firstTime2 = false;
+    } else{
+      x2.push(data2.array[0].tanggal);
+      y2.push(data2.array[0].nilai);
+      if (x2.length > 5) {
             x2.shift();
             y2.shift();
-        }
+      }
     }
     myChart2.update();
 }
+let firstTime3 = true;
 async function getKelembaban() {
     const response3 = await fetch(url_kelembaban);
     const data3 = await response3.json();
 
     document.getElementById('uniq3').textContent = data3.latest;
 
-    for (var i = 0; i < 5; i++) {
-        x3.push(data3.array[i].tanggal);
-        y3.push(data3.array[i].nilai);
-    }
-
-    if (x3.length > 5) {
-        for (var i = 0; i < 5; i++) {
+    if(firstTime3){
+      for (var i = 0; i < 5; i++) {
+          x3.push(data3.array[i].tanggal);
+          y3.push(data3.array[i].nilai);
+      }
+      firstTime3 = false;
+    } else{
+      x3.push(data3.array[0].tanggal);
+      y3.push(data3.array[0].nilai);
+      if (x3.length > 5) {
             x3.shift();
             y3.shift();
-        }
+      }
     }
+
     myChart3.update();
 }
+let firstTime4 = true;
 async function getTekananUdara() {
     const response4 = await fetch(url_tekananUdara);
     const data4 = await response4.json();
 
     document.getElementById('uniq4').textContent = data4.latest;
 
-    for (var i = 0; i < 5; i++) {
-        x4.push(data4.array[i].tanggal);
-        y4.push(data4.array[i].nilai);
-    }
-
-    if (x4.length > 5) {
-        for (var i = 0; i < 5; i++) {
+    if(firstTime4){
+      for (var i = 0; i < 5; i++) {
+          x4.push(data4.array[i].tanggal);
+          y4.push(data4.array[i].nilai);
+      }
+      firstTime4 = false;
+    } else{
+      x4.push(data4.array[0].tanggal);
+      y4.push(data4.array[0].nilai);
+      if (x4.length > 5) {
             x4.shift();
             y4.shift();
-        }
+      }
     }
+
     myChart4.update();
 }
+let firstTime5 = true;
 async function getIntensitasCahaya() {
     const response5 = await fetch(url_intensitasCahaya);
     const data5 = await response5.json();
 
     document.getElementById('uniq5').textContent = data5.latest;
 
-    for (var i = 0; i < 5; i++) {
-        x5.push(data5.array[i].tanggal);
-        y5.push(data5.array[i].nilai);
-    }
-
-    if (x5.length > 5) {
-        for (var i = 0; i < 5; i++) {
+    if(firstTime5){
+      for (var i = 0; i < 5; i++) {
+          x5.push(data5.array[i].tanggal);
+          y5.push(data5.array[i].nilai);
+      }
+      firstTime5 = false;
+    } else{
+      x5.push(data5.array[0].tanggal);
+      y5.push(data5.array[0].nilai);
+      if (x5.length > 5) {
             x5.shift();
             y5.shift();
-        }
+      }
     }
+
     myChart5.update();
 }
 
@@ -198,4 +222,4 @@ function getAll() {
 }
 
 getAll();
-setInterval(getAll, 8000);
+setInterval(getAll, 30000);
