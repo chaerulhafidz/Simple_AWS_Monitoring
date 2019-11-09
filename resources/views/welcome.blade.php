@@ -15,6 +15,7 @@
     <div class="topbar">
         <div class="left">
             <h1>Automatic Weather<br>Station Report</h1>
+            <p>by Dramaga Dynamics </p>
         </div>
         <div class="right">
             <h1 id="tggl" class="tggl">Kamis/20-10-2019</h1>
@@ -31,7 +32,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kecepatan Angin</h4>
-                        <p><span class="uniq">Coming </span>Soon</p>
+                        <p><span id="uniq" class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
 
@@ -43,7 +44,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span class="uniq">Coming </span>Soon</p>
+                        <p><span id="uniq1" class="uniq">wait..</span> Soon</p>
                     </div>
                 </div>
             </div>
@@ -54,18 +55,18 @@
                     </div>
                     <div class="textnya">
                         <h4>Suhu</h4>
-                        <p><span class="uniq" id="uniq2">{{ $suhu }}° </span>Celsius</p>
+                        <p><span class="uniq" id="uniq2">wait..</span>°C</p>
                     </div>
                 </div>
             </div>
-                <div class="card4" id="myBtn3">
+            <div class="card4" id="myBtn3">
                 <div class="containers">
                     <div class="icons">
                         <img src="{{ asset('img/raindrop.png') }}">
                     </div>
                     <div class="textnya">
                         <h4>Kelembaban</h4>
-                        <p><span class="uniq" id="uniq3">{{ $kelembaban }} </span>RH</p>
+                        <p><span class="uniq" id="uniq3">wait..</span>RH</p>
                     </div>
                 </div>
             </div>
@@ -76,7 +77,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Tekanan Udara</h4>
-                        <p><span class="uniq" id="uniq4">{{ $tekanan_udara }} </span>mmHg</p>
+                        <p><span class="uniq" id="uniq4">wait..</span>mmHg</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +88,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Intensitas Cahaya</h4>
-                        <p><span class="uniq" id="uniq5">{{ $intensitas_cahaya }} </span>Cd</p>
+                        <p><span class="uniq" id="uniq5">wait..</span>Cd</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +99,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kualitas Udara</h4>
-                        <p><span class="uniq" id="uniq6">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq6">wait..</span></p>
                     </div>
                 </div>
             </div>
@@ -109,7 +110,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Kondisi</h4>
-                        <p><span class="uniq" id="uniq7">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq7">wait..</span></p>
                     </div>
                 </div>
             </div>
@@ -120,7 +121,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Ketinggian Alat</h4>
-                        <p><span class="uniq" id="uniq8">30</span>km/h</p>
+                        <p><span class="uniq" id="uniq8">wait..</span>m</p>
                     </div>
                 </div>
             </div>
@@ -141,8 +142,8 @@
               <h1>Histori</h1>
               <div class="historiClass-inner">
                 <div class="histori-card">
-                  <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
-                  <p id="tgglHistori1">20/10/2019</p>
+                  <h3><span class="histori-span" id="histori">32</span>km/h</h3>
+                  <p id="tgglHistori">20/10/2019</p>
                 </div>
             </div>
             </div>
@@ -158,6 +159,15 @@
         </div>
         <div class="modal-body">
             <canvas id="chart1" height="80px"></canvas>
+            <div class="historiClass">
+              <h1>Histori</h1>
+              <div class="historiClass-inner">
+                <div class="histori-card">
+                  <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
+                  <p id="tgglHistori1">20/10/2019</p>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
@@ -209,6 +219,7 @@
         </div>
     </div>
 </div>
+
 <div id="myModal6" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
@@ -249,22 +260,105 @@
 
 </html>
 
-<!-- main function -->
 <script>
-    const xl = [];
-    const yl = [];
+    const x = []; const y = [];
+    // terisi
+    const x1 = []; const y1 = [];
+    const x2 = []; const y2 = [];
+    const x3 = []; const y3 = [];
+    const x4 = []; const y4 = [];
+    const x5 = []; const y5 = [];
+    const x6 = []; const y6 = [];
 
+    const x7 = []; const y7 = [];
+    const x8 = []; const y8 = [];
 
-    const ctx = document.getElementById('chart').getContext('2d');
-
-    const myChart = new Chart(ctx, {
+    // chart
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
         type: 'line',
         data: {
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            labels: xl,
+            labels: x1,
             datasets: [{
                 label: 'Global Average Temperature in C°',
-                data: yl,
+                data: y1,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x2,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y2,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx3 = document.getElementById('chart3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x3,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y3,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx4 = document.getElementById('chart4').getContext('2d');
+    const myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x4,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y4,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
+        }
+    });
+    const ctx5 = document.getElementById('chart5').getContext('2d');
+    const myChart5 = new Chart(ctx5, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x5,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y5,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
                 borderWidth: 1,
@@ -276,39 +370,29 @@
         }
     });
 
-    // const url_iss = 'http://api.open-notify.org/iss-now.json';
-    const url_aws = 'http://localhost:8000/api/arah_angin'
-
-    async function getAWS() {
-        const response = await fetch(url_aws);
-        const data = await response.json();
-        document.getElementById('uniq').textContent = data.latest;
-    }
-
-    async function getISS() {
-        const response = await fetch(url_aws);
-        const data = await response.json();
-
-        for (var i = 0; i < 5; i++) {
-            xl.push(data.array[i].tanggal);
-            yl.push(data.array[i].nilai);
+    const ctx6 = document.getElementById('chart6').getContext('2d');
+    const myChart6 = new Chart(ctx6, {
+        type: 'line',
+        data: {
+            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: x6,
+            datasets: [{
+                label: 'Global Average Temperature in C°',
+                data: y6,
+                backgroundColor: '#06789e',
+                borderColor: '#06789e',
+                borderWidth: 1,
+                fill: false,
+                options: {
+                    maintainAspectRatio: false,
+                }
+            }]
         }
-
-        if (xl.length > 5) {
-            for (var i = 0; i < 5; i++) {
-                xl.shift();
-                yl.shift();
-            }
-        }
-        myChart.update();
-    }
-
-
-    getISS();
-    getAWS();
-    setInterval(getISS, 4000);
-    setInterval(getAWS, 4000);
+    });
 </script>
+
+<!-- api -->
+<script type="text/javascript" src="{{ asset('js/api.js') }}"></script>
 
 <!-- calendar and time -->
 <script>
