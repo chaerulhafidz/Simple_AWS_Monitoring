@@ -112,7 +112,7 @@ class CreateTableSemua extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suhu');
+
         Schema::dropIfExists('suhu_harian');
         Schema::dropIfExists('kelembaban');
         Schema::dropIfExists('kelembaban_harian');

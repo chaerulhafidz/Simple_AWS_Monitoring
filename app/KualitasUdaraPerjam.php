@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class KualitasUdaraHarian extends Model
+class KualitasUdaraPerjam extends Model
 {
-    protected $table = 'kualitas_udara_harian';
+    protected $table = 'kualitas_udara_perjam';
 
     protected $fillable = [
         'rata_rata', 'tanggal'
