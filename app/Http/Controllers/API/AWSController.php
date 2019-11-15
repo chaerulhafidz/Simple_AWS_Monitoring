@@ -53,7 +53,7 @@ class AWSController extends Controller
             if (count($nilai) == 1440) {
                 $var = new ArahAnginHarian();
                 $var->rata_rata = $rata_rata;
-                $var->tanggal = Carbon::yesterday();
+                $var->tanggal = Carbon::today();
                 $var->save();
             }
         } else {
@@ -98,7 +98,7 @@ class AWSController extends Controller
             if (count($nilai) == 1440) {
                 $var = new SuhuHarian();
                 $var->rata_rata = $rata_rata;
-                $var->tanggal = Carbon::yesterday();
+                $var->tanggal = Carbon::today();
                 $var->save();
             }
         } else {
@@ -143,7 +143,7 @@ class AWSController extends Controller
             if (count($nilai) == 1440) {
                 $var = new SuhuHarian();
                 $var->rata_rata = $rata_rata;
-                $var->tanggal = Carbon::yesterday();
+                $var->tanggal = Carbon::today();
                 $var->save();
             }
         } else {
@@ -188,7 +188,7 @@ class AWSController extends Controller
             if (count($nilai) == 1440) {
                 $var = new SuhuHarian();
                 $var->rata_rata = $rata_rata;
-                $var->tanggal = Carbon::yesterday();
+                $var->tanggal = Carbon::today();
                 $var->save();
             }
         } else {
@@ -210,11 +210,12 @@ class AWSController extends Controller
         $latest = IntensitasCahaya::orderBy('id', 'desc')->first();
 
         if ($latest != null) {
-            $latest = $latest->nilai;
+            $latest = ((float)$latest->nilai / 1023) * 100;
         }
 
         foreach ($array as $ar) {
             $ar->tanggal = Carbon::parse($ar->tanggal)->format('d F y | H:i');
+            $ar->nilai = ((float)$ar->nilai / 1023) * 100;
         }
 
         $rata_hari = IntensitasCahayaHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
@@ -229,11 +230,13 @@ class AWSController extends Controller
 
             $rata_rata = number_format(array_sum($nilai) / count($nilai), 2,
                 '.', '');
+            
+            $rata_rata = ($rata_rata / 1023) * 100;
 
             if (count($nilai) == 1440) {
                 $var = new SuhuHarian();
                 $var->rata_rata = $rata_rata;
-                $var->tanggal = Carbon::yesterday();
+                $var->tanggal = Carbon::today();
                 $var->save();
             }
         } else {
