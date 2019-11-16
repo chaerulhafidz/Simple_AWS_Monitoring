@@ -219,19 +219,30 @@
         </div>
     </div>
 </div>
-
 <div id="myModal6" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
             <span class="close6">&times;</span>
-            <h2>Grafik Kualitas Udara</h2>
+            <h2>Table Kualitas Udara</h2>
         </div>
         <div class="modal-body">
-            <canvas id="chart6" height="80px"></canvas>
+          <table id="myTable">
+            <tr class="headTab">
+              <th>Nilai</th>
+              <th>Jam</th>
+              <th>Warna</th>
+            </tr>
+            <tr>
+              <td>Row2 cell1</td>
+              <td>Row2 cell2</td>
+              <td>Row2 cell2</td>
+            </tr>
+          </table>
         </div>
     </div>
 </div>
+
 <div id="myModal7" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
@@ -240,7 +251,18 @@
             <h2>Grafik Kondisi</h2>
         </div>
         <div class="modal-body">
-            <canvas id="chart7" height="80px"></canvas>
+          <table id="myTable1">
+            <tr class="headTab">
+              <th>Nilai</th>
+              <th>Jam</th>
+              <th>Warna</th>
+            </tr>
+            <tr>
+              <td>Row2 cell1</td>
+              <td>Row2 cell2</td>
+              <td>Row2 cell2</td>
+            </tr>
+          </table>
         </div>
     </div>
 </div>
@@ -382,13 +404,14 @@
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
                 borderWidth: 1,
-                fill: false,
+                fill: true,
                 options: {
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: false
                 }
             }]
         }
     });
+
 </script>
 
 <!-- api -->

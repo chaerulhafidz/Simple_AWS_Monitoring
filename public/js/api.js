@@ -41,8 +41,9 @@ async function getSuhu() {
 
     document.getElementById('uniq2').textContent = data2.latest;
 
+    var leg5 = data2.array.length;
     if(firstTime2){
-      for (var i = 0; i < 5; i++) {
+      for (var i = leg5-1; i >= 0; i--) {
           x2.push(data2.array[i].tanggal);
           y2.push(data2.array[i].nilai);
       }
@@ -64,8 +65,9 @@ async function getKelembaban() {
 
     document.getElementById('uniq3').textContent = data3.latest;
 
+    var leg4 = data3.array.length;
     if(firstTime3){
-      for (var i = 0; i < 5; i++) {
+      for (var i = leg4-1; i >= 0; i--) {
           x3.push(data3.array[i].tanggal);
           y3.push(data3.array[i].nilai);
       }
@@ -88,8 +90,9 @@ async function getTekananUdara() {
 
     document.getElementById('uniq4').textContent = data4.latest;
 
+    var leg3 = data4.array.length;
     if(firstTime4){
-      for (var i = 0; i < 5; i++) {
+      for (var i = leg3-1; i >= 0; i--) {
           x4.push(data4.array[i].tanggal);
           y4.push(data4.array[i].nilai);
       }
@@ -112,8 +115,9 @@ async function getIntensitasCahaya() {
 
     document.getElementById('uniq5').textContent = data5.latest;
 
+    var leg6 = data5.array.length;
     if(firstTime5){
-      for (var i = 0; i < 5; i++) {
+      for (var i = leg6-1; i >= 0; i--) {
           x5.push(data5.array[i].tanggal);
           y5.push(data5.array[i].nilai);
       }
@@ -129,7 +133,8 @@ async function getIntensitasCahaya() {
 
     myChart5.update();
 }
-
+let firstTime6 = true;
+var inc = 0;
 async function getKualitasUdara() {
     const response6 = await fetch(url_kualitasUdara);
     const data6 = await response6.json();
@@ -148,22 +153,65 @@ async function getKualitasUdara() {
     if (data6.latest == 'bahaya') {
         card6.style.background = "#e35459";
     }
-    //
-    // document.getElementById('uniq1').textContent = data.latest;
-    //
-    // for (var i = 0; i < 5; i++) {
-    //     xl.push(data.array[i].tanggal);
-    //     yl.push(data.array[i].nilai);
-    // }
-    //
-    // if (xl.length > 5) {
-    //     for (var i = 0; i < 5; i++) {
-    //         xl.shift();
-    //         yl.shift();
-    //     }
-    // }
-    // myChart.update();
+
+    var x = document.getElementById("myTable").rows.length;
+    var leg = data6.array.length;
+    var table = document.getElementById("myTable");
+    var xx = document.getElementById("myTable").rows.length;
+
+    if(firstTime6){
+      for (var i = 0; i <= leg-1; i++) {
+        var row = table.insertRow(x);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = data6.array[i].nilai;
+        cell2.innerHTML = data6.array[i].tanggal;
+        if (data6.array[i].nilai == 'sehat') {
+            cell3.style.backgroundColor = "#5ae657";
+        }
+        if (data6.array[i].nilai == 'normal') {
+            cell3.style.backgroundColor = "#d5e354";
+        }
+        if (data6.array[i].nilai == 'tidak sehat') {
+            cell3.style.backgroundColor = "#e39e54";
+        }
+        if (data6.array[i].nilai == 'bahaya') {
+            cell3.style.backgroundColor = "#e35459";
+        }
+      }
+      firstTime6 = false;
+    }else if(inc > 119 ){
+      var row = table.insertRow(x);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      cell1.innerHTML = data6.array[0].nilai;
+      cell2.innerHTML = data6.array[0].tanggal;
+      if (data6.array[0].nilai == 'sehat') {
+          cell3.style.backgroundColor = "#5ae657";
+      }
+      if (data6.array[0].nilai == 'normal') {
+          cell3.style.backgroundColor = "#d5e354";
+      }
+      if (data6.array[0].nilai == 'tidak sehat') {
+          cell3.style.backgroundColor = "#e39e54";
+      }
+      if (data6.array[0].nilai == 'bahaya') {
+          cell3.style.backgroundColor = "#e35459";
+      }
+      if (xx > 24) {
+        document.getElementById("myTable").deleteRow(1);
+      }
+
+      inc = 0;
+    }
+
+    inc = inc + 1;
+
 }
+let firstTime7 = true;
+var inc1 = 0;
 async function getKondisi() {
     const response7 = await fetch(url_kondisiCuaca);
     const data7 = await response7.json();
@@ -175,28 +223,54 @@ async function getKondisi() {
     } else {
         card7.style.background = "#ffcd03";
     }
-    //
-    // document.getElementById('uniq1').textContent = data.latest;
-    //
-    // for (var i = 0; i < 5; i++) {
-    //     xl.push(data.array[i].tanggal);
-    //     yl.push(data.array[i].nilai);
-    // }
-    //
-    // if (xl.length > 5) {
-    //     for (var i = 0; i < 5; i++) {
-    //         xl.shift();
-    //         yl.shift();
-    //     }
-    // }
-    // myChart.update();
+
+    var x1 = document.getElementById("myTable1").rows.length;
+    var leg1 = data7.array.length;
+    var table1 = document.getElementById("myTable1");
+    var xx1 = document.getElementById("myTable1").rows.length;
+
+    if(firstTime7){
+      for (var i = 0; i <= leg1-1; i++) {
+        var row1 = table1.insertRow(x1);
+        var cell11 = row1.insertCell(0);
+        var cell21 = row1.insertCell(1);
+        var cell31 = row1.insertCell(2);
+        cell11.innerHTML = data7.array[i].nilai;
+        cell21.innerHTML = data7.array[i].tanggal;
+        if (data7.array[i].nilai == 'basah') {
+            cell31.style.backgroundColor = "#0374ff";
+        } else {
+            cell31.style.backgroundColor = "#ffcd03";
+        }
+      }
+      firstTime7 = false;
+    }else if(inc1 > 119 ){
+      var row1 = table1.insertRow(x1);
+      var cell11 = row1.insertCell(0);
+      var cell21 = row1.insertCell(1);
+      var cell31 = row1.insertCell(2);
+      cell11.innerHTML = data7.array[0].nilai;
+      cell21.innerHTML = data7.array[0].tanggal;
+      if (xx1 > 5) {
+        document.getElementById("myTable1").deleteRow(1);
+      }
+      if (data7.array[0].nilai == 'basah') {
+          cell31.style.backgroundColor = "#0374ff";
+      } else {
+          cell31.style.backgroundColor = "#ffcd03";
+      }
+
+
+      inc1 = 0;
+    }
+    inc1 = inc1 + 1;
 }
 async function getKetinggianAlat() {
-    const response = await fetch(url_ketinggian);
-    const data = await response.json();
+    const response10 = await fetch(url_ketinggian);
+    const data10 = await response10.json();
     //
-    // document.getElementById('uniq1').textContent = data.latest;
-    //
+    document.getElementById('uniq8').textContent = data10.latest;
+
     // for (var i = 0; i < 5; i++) {
     //     xl.push(data.array[i].tanggal);
     //     yl.push(data.array[i].nilai);
@@ -217,8 +291,8 @@ function getAll() {
     getKelembaban();
     getTekananUdara();
     getIntensitasCahaya();
-    getKualitasUdara();
     getKondisi();
+    getKualitasUdara();
 }
 
 getAll();
