@@ -51,7 +51,7 @@ async function getSuhu() {
     } else{
       x2.push(data2.array[0].tanggal);
       y2.push(data2.array[0].nilai);
-      if (x2.length > 5) {
+      if (x2.length > 60) {
             x2.shift();
             y2.shift();
       }
@@ -75,7 +75,7 @@ async function getKelembaban() {
     } else{
       x3.push(data3.array[0].tanggal);
       y3.push(data3.array[0].nilai);
-      if (x3.length > 5) {
+      if (x3.length > 60) {
             x3.shift();
             y3.shift();
       }
@@ -100,7 +100,7 @@ async function getTekananUdara() {
     } else{
       x4.push(data4.array[0].tanggal);
       y4.push(data4.array[0].nilai);
-      if (x4.length > 5) {
+      if (x4.length > 60) {
             x4.shift();
             y4.shift();
       }
@@ -113,7 +113,7 @@ async function getIntensitasCahaya() {
     const response5 = await fetch(url_intensitasCahaya);
     const data5 = await response5.json();
 
-    document.getElementById('uniq5').textContent = data5.latest;
+    document.getElementById('uniq5').textContent = data5.latest.toFixed(2);
 
     var leg6 = data5.array.length;
     if(firstTime5){
@@ -125,7 +125,7 @@ async function getIntensitasCahaya() {
     } else{
       x5.push(data5.array[0].tanggal);
       y5.push(data5.array[0].nilai);
-      if (x5.length > 5) {
+      if (x5.length > 60) {
             x5.shift();
             y5.shift();
       }

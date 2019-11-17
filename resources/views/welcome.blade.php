@@ -160,13 +160,13 @@
         <div class="modal-body">
             <canvas id="chart1" height="80px"></canvas>
             <div class="historiClass">
-              <h1>Histori</h1>
-              <div class="historiClass-inner">
+              <!-- <h1>Histori</h1> -->
+              <!-- <div class="historiClass-inner">
                 <div class="histori-card">
                   <h3><span class="histori-span" id="histori1">32</span>km/h</h3>
                   <p id="tgglHistori1">20/10/2019</p>
                 </div>
-            </div>
+            </div> -->
             </div>
         </div>
     </div>
