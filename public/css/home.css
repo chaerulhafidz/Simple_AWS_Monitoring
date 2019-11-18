@@ -289,6 +289,7 @@ table {
   border-collapse: collapse;
   width: 90%;
   margin: 0 auto;
+
 }
 
 th, td {
@@ -305,4 +306,11 @@ th {
 .headTab{
   background-image: linear-gradient(90deg, #06789e, #32BABC);
 
+}
+.histori{
+  margin-bottom: 20px;
+}
+
+.histori h1{
+  margin: 16px;
 }

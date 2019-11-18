@@ -41,8 +41,18 @@ async function getSuhu() {
 
     document.getElementById('uniq2').textContent = data2.latest;
 
+    // histori
+    var xhis2 = document.getElementById("myTable2").rows.length;
+    var table2 = document.getElementById("myTable2");
     var leg5 = data2.array.length;
     if(firstTime2){
+      for (var j = 1; j >= 0; j--) {
+        var row2 = table2.insertRow(xhis2);
+        var cell12 = row2.insertCell(0);
+        var cell22 = row2.insertCell(1);
+        cell12.innerHTML = data2.rata_hari[j].rata_rata;
+        cell22.innerHTML = data2.rata_hari[j].tanggal;
+      }
       for (var i = leg5-1; i >= 0; i--) {
           x2.push(data2.array[i].tanggal);
           y2.push(data2.array[i].nilai);
@@ -65,8 +75,19 @@ async function getKelembaban() {
 
     document.getElementById('uniq3').textContent = data3.latest;
 
+    //histori
+    var xhis3 = document.getElementById("myTable3").rows.length;
+    var table3 = document.getElementById("myTable3");
     var leg4 = data3.array.length;
     if(firstTime3){
+      //histori
+      for (var j = 1; j >= 0; j--) {
+        var row3 = table3.insertRow(xhis3);
+        var cell13 = row3.insertCell(0);
+        var cell23 = row3.insertCell(1);
+        cell13.innerHTML = data3.rata_hari[j].rata_rata;
+        cell23.innerHTML = data3.rata_hari[j].tanggal;
+      }
       for (var i = leg4-1; i >= 0; i--) {
           x3.push(data3.array[i].tanggal);
           y3.push(data3.array[i].nilai);
@@ -90,8 +111,19 @@ async function getTekananUdara() {
 
     document.getElementById('uniq4').textContent = data4.latest;
 
+    //histori
+    var xhis4 = document.getElementById("myTable4").rows.length;
+    var table4 = document.getElementById("myTable4");
     var leg3 = data4.array.length;
     if(firstTime4){
+      //histori
+      for (var j = 1; j >= 0; j--) {
+        var row4 = table4.insertRow(xhis4);
+        var cell14 = row4.insertCell(0);
+        var cell24 = row4.insertCell(1);
+        cell14.innerHTML = data4.rata_hari[j].rata_rata;
+        cell24.innerHTML = data4.rata_hari[j].tanggal;
+      }
       for (var i = leg3-1; i >= 0; i--) {
           x4.push(data4.array[i].tanggal);
           y4.push(data4.array[i].nilai);
@@ -115,8 +147,20 @@ async function getIntensitasCahaya() {
 
     document.getElementById('uniq5').textContent = data5.latest.toFixed(2);
 
+    //histori
+    var xhis5 = document.getElementById("myTable5").rows.length;
+    var table5 = document.getElementById("myTable5");
     var leg6 = data5.array.length;
     if(firstTime5){
+      //histori
+      for (var j = 1; j >= 0; j--) {
+        var row5 = table5.insertRow(xhis5);
+        var cell15 = row5.insertCell(0);
+        var cell25 = row5.insertCell(1);
+        cell15.innerHTML = data5.rata_hari[j].rata_rata;
+        cell25.innerHTML = data5.rata_hari[j].tanggal;
+      }
+
       for (var i = leg6-1; i >= 0; i--) {
           x5.push(data5.array[i].tanggal);
           y5.push(data5.array[i].nilai);
