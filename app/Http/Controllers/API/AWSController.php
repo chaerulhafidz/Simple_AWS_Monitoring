@@ -40,6 +40,10 @@ class AWSController extends Controller
         $rata_hari = ArahAnginHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
 
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
+
         if (count($all) != 0) {
 
             $nilai = [];
@@ -84,6 +88,10 @@ class AWSController extends Controller
 
         $rata_hari = SuhuHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
+
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
 
         if (count($all) != 0) {
 
@@ -130,6 +138,10 @@ class AWSController extends Controller
         $rata_hari = KelembabanHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
 
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
+
         if (count($all) != 0) {
 
             $nilai = [];
@@ -141,7 +153,7 @@ class AWSController extends Controller
                 '.', '');
 
             if (count($nilai) == 1440) {
-                $var = new SuhuHarian();
+                $var = new KelembabanHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
                 $var->save();
@@ -175,6 +187,10 @@ class AWSController extends Controller
         $rata_hari = TekananUdaraHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
 
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
+
         if (count($all) != 0) {
 
             $nilai = [];
@@ -186,7 +202,7 @@ class AWSController extends Controller
                 '.', '');
 
             if (count($nilai) == 1440) {
-                $var = new SuhuHarian();
+                $var = new TekananUdaraHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
                 $var->save();
@@ -221,6 +237,10 @@ class AWSController extends Controller
         $rata_hari = IntensitasCahayaHarian::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
 
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('d F y');
+        }
+
         if (count($all) != 0) {
 
             $nilai = [];
@@ -234,7 +254,7 @@ class AWSController extends Controller
             $rata_rata = ($rata_rata / 1023) * 100;
 
             if (count($nilai) == 1440) {
-                $var = new SuhuHarian();
+                $var = new IntensitasCahayaHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
                 $var->save();
@@ -270,6 +290,10 @@ class AWSController extends Controller
 
         $rata_hari = KualitasUdaraPerjam::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
+
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
 
         if (count($all) == 60) {
             $c = array_count_values($all);
@@ -310,6 +334,10 @@ class AWSController extends Controller
 
         $rata_hari = KondisiCuacaPerjam::where('tanggal', '>=', date('Y-m-d', strtotime('-2 days')))
             ->get();
+
+        foreach ($rata_hari as $rh) {
+            $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
+        }
 
         if (count($all) == 60) {
             $c = array_count_values($all);
