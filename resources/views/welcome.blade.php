@@ -180,6 +180,17 @@
         </div>
         <div class="modal-body">
             <canvas id="chart2" height="80px"></canvas>
+            <div class="histori">
+              <h1>Histori</h1>
+              <table id="myTable2">
+                <tr class="headTab">
+                  <th>Nilai</th>
+                  <th>Waktu</th>
+                </tr>
+                <tr>
+                </tr>
+              </table>
+            </div>
         </div>
     </div>
 </div>
@@ -192,6 +203,17 @@
         </div>
         <div class="modal-body">
             <canvas id="chart3" height="80px"></canvas>
+            <div class="histori">
+              <h1>Histori</h1>
+              <table id="myTable3">
+                <tr class="headTab">
+                  <th>Nilai</th>
+                  <th>Waktu</th>
+                </tr>
+                <tr>
+                </tr>
+              </table>
+            </div>
         </div>
     </div>
 </div>
@@ -204,6 +226,17 @@
         </div>
         <div class="modal-body">
             <canvas id="chart4" height="80px"></canvas>
+            <div class="histori">
+              <h1>Histori</h1>
+              <table id="myTable4">
+                <tr class="headTab">
+                  <th>Nilai</th>
+                  <th>Waktu</th>
+                </tr>
+                <tr>
+                </tr>
+              </table>
+            </div>
         </div>
     </div>
 </div>
@@ -216,6 +249,17 @@
         </div>
         <div class="modal-body">
             <canvas id="chart5" height="80px"></canvas>
+            <div class="histori">
+              <h1>Histori</h1>
+              <table id="myTable5">
+                <tr class="headTab">
+                  <th>Nilai</th>
+                  <th>Waktu</th>
+                </tr>
+                <tr>
+                </tr>
+              </table>
+            </div>
         </div>
     </div>
 </div>
@@ -322,7 +366,7 @@
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: x2,
             datasets: [{
-                label: 'Global Average Temperature in C°',
+                label: 'Temperature in C°',
                 data: y2,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
@@ -341,7 +385,7 @@
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: x3,
             datasets: [{
-                label: 'Global Average Temperature in C°',
+                label: 'Kelembaban (RH)',
                 data: y3,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
@@ -360,7 +404,7 @@
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: x4,
             datasets: [{
-                label: 'Global Average Temperature in C°',
+                label: 'Tekanan Udara (mmHg)',
                 data: y4,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
@@ -379,7 +423,7 @@
             // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: x5,
             datasets: [{
-                label: 'Global Average Temperature in C°',
+                label: 'Intensitas Cahaya (Cd)',
                 data: y5,
                 backgroundColor: '#06789e',
                 borderColor: '#06789e',
@@ -391,26 +435,26 @@
             }]
         }
     });
-
-    const ctx6 = document.getElementById('chart6').getContext('2d');
-    const myChart6 = new Chart(ctx6, {
-        type: 'line',
-        data: {
-            // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            labels: x6,
-            datasets: [{
-                label: 'Global Average Temperature in C°',
-                data: y6,
-                backgroundColor: '#06789e',
-                borderColor: '#06789e',
-                borderWidth: 1,
-                fill: true,
-                options: {
-                    maintainAspectRatio: false
-                }
-            }]
-        }
-    });
+    //
+    // const ctx6 = document.getElementById('chart6').getContext('2d');
+    // const myChart6 = new Chart(ctx6, {
+    //     type: 'line',
+    //     data: {
+    //         // BEFORE labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    //         labels: x6,
+    //         datasets: [{
+    //             label: 'Global Average Temperature in C°',
+    //             data: y6,
+    //             backgroundColor: '#06789e',
+    //             borderColor: '#06789e',
+    //             borderWidth: 1,
+    //             fill: true,
+    //             options: {
+    //                 maintainAspectRatio: false
+    //             }
+    //         }]
+    //     }
+    // });
 
 </script>
 
