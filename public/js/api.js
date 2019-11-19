@@ -53,6 +53,12 @@ async function getSuhu() {
         cell12.innerHTML = data2.rata_hari[j].rata_rata;
         cell22.innerHTML = data2.rata_hari[j].tanggal;
       }
+      var row2 = table2.insertRow(1);
+      var cell12 = row2.insertCell(0);
+      var cell22 = row2.insertCell(1);
+      cell12.innerHTML = data2.rata_rata;
+      cell22.innerHTML = "Hari ini";
+
       for (var i = leg5-1; i >= 0; i--) {
           x2.push(data2.array[i].tanggal);
           y2.push(data2.array[i].nilai);
@@ -88,6 +94,11 @@ async function getKelembaban() {
         cell13.innerHTML = data3.rata_hari[j].rata_rata;
         cell23.innerHTML = data3.rata_hari[j].tanggal;
       }
+      var row3 = table3.insertRow(1);
+      var cell13 = row3.insertCell(0);
+      var cell23 = row3.insertCell(1);
+      cell13.innerHTML = data3.rata_rata;
+      cell23.innerHTML = "Hari ini";
       for (var i = leg4-1; i >= 0; i--) {
           x3.push(data3.array[i].tanggal);
           y3.push(data3.array[i].nilai);
@@ -124,6 +135,11 @@ async function getTekananUdara() {
         cell14.innerHTML = data4.rata_hari[j].rata_rata;
         cell24.innerHTML = data4.rata_hari[j].tanggal;
       }
+      var row4 = table4.insertRow(1);
+      var cell14 = row4.insertCell(0);
+      var cell24 = row4.insertCell(1);
+      cell14.innerHTML = data4.rata_rata;
+      cell24.innerHTML = "Hari ini";
       for (var i = leg3-1; i >= 0; i--) {
           x4.push(data4.array[i].tanggal);
           y4.push(data4.array[i].nilai);
@@ -160,7 +176,11 @@ async function getIntensitasCahaya() {
         cell15.innerHTML = data5.rata_hari[j].rata_rata;
         cell25.innerHTML = data5.rata_hari[j].tanggal;
       }
-
+      var row5 = table5.insertRow(1);
+      var cell15 = row5.insertCell(0);
+      var cell25 = row5.insertCell(1);
+      cell15.innerHTML = data5.rata_rata;
+      cell25.innerHTML = "Hari ini";
       for (var i = leg6-1; i >= 0; i--) {
           x5.push(data5.array[i].tanggal);
           y5.push(data5.array[i].nilai);
