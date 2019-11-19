@@ -42,12 +42,12 @@ async function getSuhu() {
     document.getElementById('uniq2').textContent = data2.latest;
 
     // histori
-    var xhis2 = document.getElementById("myTable2").rows.length;
+    // var xhis2 = document.getElementById("myTable2").rows.length;
     var table2 = document.getElementById("myTable2");
     var leg5 = data2.array.length;
     if(firstTime2){
       for (var j = 1; j >= 0; j--) {
-        var row2 = table2.insertRow(xhis2);
+        var row2 = table2.insertRow(1);
         var cell12 = row2.insertCell(0);
         var cell22 = row2.insertCell(1);
         cell12.innerHTML = data2.rata_hari[j].rata_rata;
@@ -76,13 +76,13 @@ async function getKelembaban() {
     document.getElementById('uniq3').textContent = data3.latest;
 
     //histori
-    var xhis3 = document.getElementById("myTable3").rows.length;
+    // var xhis3 = document.getElementById("myTable3").rows.length;
     var table3 = document.getElementById("myTable3");
     var leg4 = data3.array.length;
     if(firstTime3){
       //histori
       for (var j = 1; j >= 0; j--) {
-        var row3 = table3.insertRow(xhis3);
+        var row3 = table3.insertRow(1);
         var cell13 = row3.insertCell(0);
         var cell23 = row3.insertCell(1);
         cell13.innerHTML = data3.rata_hari[j].rata_rata;
@@ -109,16 +109,16 @@ async function getTekananUdara() {
     const response4 = await fetch(url_tekananUdara);
     const data4 = await response4.json();
 
-    document.getElementById('uniq4').textContent = data4.latest;
+    document.getElementById('uniq4').textContent = parseFloat(data4.latest).toFixed(2);
 
     //histori
-    var xhis4 = document.getElementById("myTable4").rows.length;
+    // var xhis4 = document.getElementById("myTable4").rows.length;
     var table4 = document.getElementById("myTable4");
     var leg3 = data4.array.length;
     if(firstTime4){
       //histori
       for (var j = 1; j >= 0; j--) {
-        var row4 = table4.insertRow(xhis4);
+        var row4 = table4.insertRow(1);
         var cell14 = row4.insertCell(0);
         var cell24 = row4.insertCell(1);
         cell14.innerHTML = data4.rata_hari[j].rata_rata;
@@ -148,13 +148,13 @@ async function getIntensitasCahaya() {
     document.getElementById('uniq5').textContent = data5.latest.toFixed(2);
 
     //histori
-    var xhis5 = document.getElementById("myTable5").rows.length;
+    // var xhis5 = document.getElementById("myTable5").rows.length;
     var table5 = document.getElementById("myTable5");
     var leg6 = data5.array.length;
     if(firstTime5){
       //histori
       for (var j = 1; j >= 0; j--) {
-        var row5 = table5.insertRow(xhis5);
+        var row5 = table5.insertRow(1);
         var cell15 = row5.insertCell(0);
         var cell25 = row5.insertCell(1);
         cell15.innerHTML = data5.rata_hari[j].rata_rata;
@@ -185,48 +185,48 @@ async function getKualitasUdara() {
 
     document.getElementById('uniq6').textContent = data6.latest;
     const card6 = document.getElementsByClassName("card7")[0];
-    if (data6.latest == 'sehat') {
+    if (data6.latest == 'Sehat') {
         card6.style.background = "#5ae657";
     }
-    if (data6.latest == 'normal') {
+    if (data6.latest == 'Normal') {
         card6.style.background = "#d5e354";
     }
-    if (data6.latest == 'tidak sehat') {
+    if (data6.latest == 'Tidak Sehat') {
         card6.style.background = "#e39e54";
     }
-    if (data6.latest == 'bahaya') {
+    if (data6.latest == 'Bahaya') {
         card6.style.background = "#e35459";
     }
 
-    var x = document.getElementById("myTable").rows.length;
+    // var x = document.getElementById("myTable").rows.length;
     var leg = data6.array.length;
     var table = document.getElementById("myTable");
-    var xx = document.getElementById("myTable").rows.length;
+    // var xx = document.getElementById("myTable").rows.length;
 
     if(firstTime6){
       for (var i = 0; i <= leg-1; i++) {
-        var row = table.insertRow(x);
+        var row = table.insertRow(1);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         cell1.innerHTML = data6.array[i].nilai;
         cell2.innerHTML = data6.array[i].tanggal;
-        if (data6.array[i].nilai == 'sehat') {
+        if (data6.array[i].nilai == 'Sehat') {
             cell3.style.backgroundColor = "#5ae657";
         }
-        if (data6.array[i].nilai == 'normal') {
+        if (data6.array[i].nilai == 'Normal') {
             cell3.style.backgroundColor = "#d5e354";
         }
-        if (data6.array[i].nilai == 'tidak sehat') {
+        if (data6.array[i].nilai == 'Tidak Sehat') {
             cell3.style.backgroundColor = "#e39e54";
         }
-        if (data6.array[i].nilai == 'bahaya') {
+        if (data6.array[i].nilai == 'Bahaya') {
             cell3.style.backgroundColor = "#e35459";
         }
       }
       firstTime6 = false;
     }else if(inc > 119 ){
-      var row = table.insertRow(x);
+      var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
@@ -262,26 +262,26 @@ async function getKondisi() {
 
     document.getElementById('uniq7').textContent = data7.latest;
     const card7 = document.getElementsByClassName("card8")[0];
-    if (data7.latest == 'basah') {
+    if (data7.latest == 'Basah') {
         card7.style.background = "#0374ff";
     } else {
         card7.style.background = "#ffcd03";
     }
 
-    var x1 = document.getElementById("myTable1").rows.length;
+    // var x1 = document.getElementById("myTable1").rows.length;
     var leg1 = data7.array.length;
     var table1 = document.getElementById("myTable1");
-    var xx1 = document.getElementById("myTable1").rows.length;
+    // var xx1 = document.getElementById("myTable1").rows.length;
 
     if(firstTime7){
       for (var i = 0; i <= leg1-1; i++) {
-        var row1 = table1.insertRow(x1);
+        var row1 = table1.insertRow(1);
         var cell11 = row1.insertCell(0);
         var cell21 = row1.insertCell(1);
         var cell31 = row1.insertCell(2);
         cell11.innerHTML = data7.array[i].nilai;
         cell21.innerHTML = data7.array[i].tanggal;
-        if (data7.array[i].nilai == 'basah') {
+        if (data7.array[i].nilai == 'Basah') {
             cell31.style.backgroundColor = "#0374ff";
         } else {
             cell31.style.backgroundColor = "#ffcd03";
@@ -289,7 +289,7 @@ async function getKondisi() {
       }
       firstTime7 = false;
     }else if(inc1 > 119 ){
-      var row1 = table1.insertRow(x1);
+      var row1 = table1.insertRow(1);
       var cell11 = row1.insertCell(0);
       var cell21 = row1.insertCell(1);
       var cell31 = row1.insertCell(2);
