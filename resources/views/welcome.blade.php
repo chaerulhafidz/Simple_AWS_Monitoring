@@ -44,7 +44,7 @@
                     </div>
                     <div class="textnya">
                         <h4>Arah Angin</h4>
-                        <p><span id="uniq1" class="uniq">wait..</span> Soon</p>
+                        <p><span id="uniq1" class="uniq">Coming </span>Soon</p>
                     </div>
                 </div>
             </div>
@@ -139,13 +139,7 @@
         <div class="modal-body">
             <canvas id="chart" height="80px"></canvas>
             <div class="historiClass">
-              <h1>Histori</h1>
-              <div class="historiClass-inner">
-                <div class="histori-card">
-                  <h3><span class="histori-span" id="histori">32</span>km/h</h3>
-                  <p id="tgglHistori">20/10/2019</p>
-                </div>
-            </div>
+              <h1>Coming Soon</h1>
             </div>
         </div>
     </div>
@@ -278,9 +272,6 @@
               <th>Warna</th>
             </tr>
             <tr>
-              <td>Row2 cell1</td>
-              <td>Row2 cell2</td>
-              <td>Row2 cell2</td>
             </tr>
           </table>
         </div>
@@ -302,9 +293,6 @@
               <th>Warna</th>
             </tr>
             <tr>
-              <td>Row2 cell1</td>
-              <td>Row2 cell2</td>
-              <td>Row2 cell2</td>
             </tr>
           </table>
         </div>
