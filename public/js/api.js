@@ -52,13 +52,13 @@ async function getSuhu() {
           var row2 = table2.insertRow(1);
           var cell12 = row2.insertCell(0);
           var cell22 = row2.insertCell(1);
-          cell12.innerHTML = parseInt(data2.rata_hari[j].rata_rata);
+          cell12.innerHTML = parseInt(data2.rata_hari[j].rata_rata) + " °C";
           cell22.innerHTML = data2.rata_hari[j].tanggal;
         }
         var row2 = table2.insertRow(1);
         var cell12 = row2.insertCell(0);
         var cell22 = row2.insertCell(1);
-        cell12.innerHTML = parseInt(data2.rata_rata);
+        cell12.innerHTML = parseInt(data2.rata_rata) + " °C";
         cell22.innerHTML = "Hari ini";
 
       }
@@ -83,7 +83,7 @@ async function getKelembaban() {
     const response3 = await fetch(url_kelembaban);
     const data3 = await response3.json();
 
-    document.getElementById('uniq3').textContent = data3.latest;
+    document.getElementById('uniq3').textContent = parseFloat(data3.latest).toFixed(2);
 
     //histori
     // var xhis3 = document.getElementById("myTable3").rows.length;
@@ -96,23 +96,23 @@ async function getKelembaban() {
           var row3 = table3.insertRow(1);
           var cell13 = row3.insertCell(0);
           var cell23 = row3.insertCell(1);
-          cell13.innerHTML = data3.rata_hari[j].rata_rata;
+          cell13.innerHTML = parseFloat(data3.rata_hari[j].rata_rata).toFixed(2) + " RH";
           cell23.innerHTML = data3.rata_hari[j].tanggal;
         }
         var row3 = table3.insertRow(1);
         var cell13 = row3.insertCell(0);
         var cell23 = row3.insertCell(1);
-        cell13.innerHTML = data3.rata_rata;
+        cell13.innerHTML = parseFloat(data3.rata_rata).toFixed(2) + " RH";
         cell23.innerHTML = "Hari ini";
       }
       for (var i = leg4-1; i >= 0; i--) {
           x3.push(data3.array[i].tanggal);
-          y3.push(data3.array[i].nilai);
+          y3.push(parseFloat(data3.array[i].nilai).toFixed(2));
       }
       firstTime3 = false;
     } else{
       x3.push(data3.array[0].tanggal);
-      y3.push(data3.array[0].nilai);
+      y3.push(parseFloat(data3.array[0].nilai).toFixed(2));
       if (x3.length > 60) {
             x3.shift();
             y3.shift();
@@ -140,24 +140,24 @@ async function getTekananUdara() {
           var row4 = table4.insertRow(1);
           var cell14 = row4.insertCell(0);
           var cell24 = row4.insertCell(1);
-          cell14.innerHTML = data4.rata_hari[j].rata_rata;
+          cell14.innerHTML = parseFloat(data4.rata_hari[j].rata_rata).toFixed(2) + " mmHg";
           cell24.innerHTML = data4.rata_hari[j].tanggal;
         }
         var row4 = table4.insertRow(1);
         var cell14 = row4.insertCell(0);
         var cell24 = row4.insertCell(1);
-        cell14.innerHTML = data4.rata_rata;
+        cell14.innerHTML = parseFloat(data4.rata_rata).toFixed(2) + " mmHg";
         cell24.innerHTML = "Hari ini";
       }
 
       for (var i = leg3-1; i >= 0; i--) {
           x4.push(data4.array[i].tanggal);
-          y4.push(data4.array[i].nilai);
+          y4.push(parseFloat(data4.array[i].nilai).toFixed(2));
       }
       firstTime4 = false;
     } else{
       x4.push(data4.array[0].tanggal);
-      y4.push(data4.array[0].nilai);
+      y4.push(parseFloat(data4.array[0].nilai).toFixed(2));
       if (x4.length > 60) {
             x4.shift();
             y4.shift();
@@ -185,17 +185,17 @@ async function getIntensitasCahaya() {
           var row5 = table5.insertRow(1);
           var cell15 = row5.insertCell(0);
           var cell25 = row5.insertCell(1);
-          cell15.innerHTML = data5.rata_hari[j].rata_rata;
+          cell15.innerHTML = data5.rata_hari[j].rata_rata + " Cd";
           cell25.innerHTML = data5.rata_hari[j].tanggal;
         }
 
         var row5 = table5.insertRow(1);
         var cell15 = row5.insertCell(0);
         var cell25 = row5.insertCell(1);
-        cell15.innerHTML = data5.rata_rata;
+        cell15.innerHTML = data5.rata_rata + " Cd";
         cell25.innerHTML = "Hari ini";
       }
-      
+
       for (var i = leg6-1; i >= 0; i--) {
           x5.push(data5.array[i].tanggal);
           y5.push(data5.array[i].nilai);

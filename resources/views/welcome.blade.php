@@ -277,7 +277,6 @@
         </div>
     </div>
 </div>
-
 <div id="myModal7" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
