@@ -12,61 +12,65 @@ const url_suhu = 'http://127.0.0.1:8000/api/suhu';
 // async function getKecepatanAngin() {}
 let firstTime1 = true;
 async function getArahAngin() {
-    const response1 = await fetch(url_arahAngin);
-    const data1 = await response1.json();
+    // const response1 = await fetch(url_arahAngin);
+    // const data1 = await response1.json();
 
-    document.getElementById('uniq1').textContent = data1.latest;
-
-    if(firstTime1){
-      for (var i = 0; i < 5; i++) {
-          x1.push(data1.array[i].tanggal);
-          y1.push(data1.array[i].nilai);
-      }
-      firstTime1 = false;
-    } else{
-      x1.push(data1.array[0].tanggal);
-      y1.push(data1.array[0].nilai);
-      if (x1.length > 5) {
-            x1.shift();
-            y1.shift();
-      }
-    }
-
-    myChart1.update();
+    // document.getElementById('uniq1').textContent = data1.latest;
+    //
+    // if(firstTime1){
+    //   for (var i = 0; i < 5; i++) {
+    //       x1.push(data1.array[i].tanggal);
+    //       y1.push(data1.array[i].nilai);
+    //   }
+    //   firstTime1 = false;
+    // } else{
+    //   x1.push(data1.array[0].tanggal);
+    //   y1.push(data1.array[0].nilai);
+    //   if (x1.length > 5) {
+    //         x1.shift();
+    //         y1.shift();
+    //   }
+    // }
+    //
+    // myChart1.update();
 }
 let firstTime2 = true;
 async function getSuhu() {
     const response2 = await fetch(url_suhu);
     const data2 = await response2.json();
 
-    document.getElementById('uniq2').textContent = data2.latest;
+    document.getElementById('uniq2').textContent = parseInt(data2.latest);
 
     // histori
     // var xhis2 = document.getElementById("myTable2").rows.length;
     var table2 = document.getElementById("myTable2");
     var leg5 = data2.array.length;
+    var bal5 = data2.rata_hari.length;
     if(firstTime2){
-      for (var j = 1; j >= 0; j--) {
+      if(bal5 > 0){
+        for (var j = bal5-1; j >= 0; j--) {
+          var row2 = table2.insertRow(1);
+          var cell12 = row2.insertCell(0);
+          var cell22 = row2.insertCell(1);
+          cell12.innerHTML = parseInt(data2.rata_hari[j].rata_rata);
+          cell22.innerHTML = data2.rata_hari[j].tanggal;
+        }
         var row2 = table2.insertRow(1);
         var cell12 = row2.insertCell(0);
         var cell22 = row2.insertCell(1);
-        cell12.innerHTML = data2.rata_hari[j].rata_rata;
-        cell22.innerHTML = data2.rata_hari[j].tanggal;
+        cell12.innerHTML = parseInt(data2.rata_rata);
+        cell22.innerHTML = "Hari ini";
+
       }
-      var row2 = table2.insertRow(1);
-      var cell12 = row2.insertCell(0);
-      var cell22 = row2.insertCell(1);
-      cell12.innerHTML = data2.rata_rata;
-      cell22.innerHTML = "Hari ini";
 
       for (var i = leg5-1; i >= 0; i--) {
           x2.push(data2.array[i].tanggal);
-          y2.push(data2.array[i].nilai);
+          y2.push(parseInt(data2.array[i].nilai));
       }
       firstTime2 = false;
     } else{
       x2.push(data2.array[0].tanggal);
-      y2.push(data2.array[0].nilai);
+      y2.push(parseInt(data2.array[0].nilai));
       if (x2.length > 60) {
             x2.shift();
             y2.shift();
@@ -85,20 +89,22 @@ async function getKelembaban() {
     // var xhis3 = document.getElementById("myTable3").rows.length;
     var table3 = document.getElementById("myTable3");
     var leg4 = data3.array.length;
-    if(firstTime3){
-      //histori
-      for (var j = 1; j >= 0; j--) {
+    var bal4 = data3.rata_hari.length;
+    if(firstTime2){
+      if(bal4 > 0){
+        for (var j = bal4-1; j >= 0; j--) {
+          var row3 = table3.insertRow(1);
+          var cell13 = row3.insertCell(0);
+          var cell23 = row3.insertCell(1);
+          cell13.innerHTML = data3.rata_hari[j].rata_rata;
+          cell23.innerHTML = data3.rata_hari[j].tanggal;
+        }
         var row3 = table3.insertRow(1);
         var cell13 = row3.insertCell(0);
         var cell23 = row3.insertCell(1);
-        cell13.innerHTML = data3.rata_hari[j].rata_rata;
-        cell23.innerHTML = data3.rata_hari[j].tanggal;
+        cell13.innerHTML = data3.rata_rata;
+        cell23.innerHTML = "Hari ini";
       }
-      var row3 = table3.insertRow(1);
-      var cell13 = row3.insertCell(0);
-      var cell23 = row3.insertCell(1);
-      cell13.innerHTML = data3.rata_rata;
-      cell23.innerHTML = "Hari ini";
       for (var i = leg4-1; i >= 0; i--) {
           x3.push(data3.array[i].tanggal);
           y3.push(data3.array[i].nilai);
@@ -126,20 +132,24 @@ async function getTekananUdara() {
     // var xhis4 = document.getElementById("myTable4").rows.length;
     var table4 = document.getElementById("myTable4");
     var leg3 = data4.array.length;
+    var bal3 = data4.rata_hari.length;
     if(firstTime4){
       //histori
-      for (var j = 1; j >= 0; j--) {
+      if(bal3 > 0){
+        for (var j = bal3-1; j >= 0; j--) {
+          var row4 = table4.insertRow(1);
+          var cell14 = row4.insertCell(0);
+          var cell24 = row4.insertCell(1);
+          cell14.innerHTML = data4.rata_hari[j].rata_rata;
+          cell24.innerHTML = data4.rata_hari[j].tanggal;
+        }
         var row4 = table4.insertRow(1);
         var cell14 = row4.insertCell(0);
         var cell24 = row4.insertCell(1);
-        cell14.innerHTML = data4.rata_hari[j].rata_rata;
-        cell24.innerHTML = data4.rata_hari[j].tanggal;
+        cell14.innerHTML = data4.rata_rata;
+        cell24.innerHTML = "Hari ini";
       }
-      var row4 = table4.insertRow(1);
-      var cell14 = row4.insertCell(0);
-      var cell24 = row4.insertCell(1);
-      cell14.innerHTML = data4.rata_rata;
-      cell24.innerHTML = "Hari ini";
+
       for (var i = leg3-1; i >= 0; i--) {
           x4.push(data4.array[i].tanggal);
           y4.push(data4.array[i].nilai);
@@ -167,20 +177,25 @@ async function getIntensitasCahaya() {
     // var xhis5 = document.getElementById("myTable5").rows.length;
     var table5 = document.getElementById("myTable5");
     var leg6 = data5.array.length;
-    if(firstTime5){
+    var bal6 = data5.rata_hari.length;
+    if(firstTime4){
       //histori
-      for (var j = 1; j >= 0; j--) {
+      if(bal6 > 0){
+        for (var j = bal6-1; j >= 0; j--) {
+          var row5 = table5.insertRow(1);
+          var cell15 = row5.insertCell(0);
+          var cell25 = row5.insertCell(1);
+          cell15.innerHTML = data5.rata_hari[j].rata_rata;
+          cell25.innerHTML = data5.rata_hari[j].tanggal;
+        }
+
         var row5 = table5.insertRow(1);
         var cell15 = row5.insertCell(0);
         var cell25 = row5.insertCell(1);
-        cell15.innerHTML = data5.rata_hari[j].rata_rata;
-        cell25.innerHTML = data5.rata_hari[j].tanggal;
+        cell15.innerHTML = data5.rata_rata;
+        cell25.innerHTML = "Hari ini";
       }
-      var row5 = table5.insertRow(1);
-      var cell15 = row5.insertCell(0);
-      var cell25 = row5.insertCell(1);
-      cell15.innerHTML = data5.rata_rata;
-      cell25.innerHTML = "Hari ini";
+      
       for (var i = leg6-1; i >= 0; i--) {
           x5.push(data5.array[i].tanggal);
           y5.push(data5.array[i].nilai);
@@ -335,6 +350,7 @@ async function getKetinggianAlat() {
     //
     document.getElementById('uniq8').textContent = data10.latest;
 
+    console.log(data10.latest);
     // for (var i = 0; i < 5; i++) {
     //     xl.push(data.array[i].tanggal);
     //     yl.push(data.array[i].nilai);
@@ -357,6 +373,7 @@ function getAll() {
     getIntensitasCahaya();
     getKondisi();
     getKualitasUdara();
+    getKetinggianAlat();
 }
 
 getAll();
