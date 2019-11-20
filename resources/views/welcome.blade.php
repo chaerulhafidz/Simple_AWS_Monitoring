@@ -268,7 +268,7 @@
           <table id="myTable">
             <tr class="headTab">
               <th>Nilai</th>
-              <th>Jam</th>
+              <th>Waktu</th>
               <th>Warna</th>
             </tr>
             <tr>
@@ -288,7 +288,7 @@
           <table id="myTable1">
             <tr class="headTab">
               <th>Nilai</th>
-              <th>Jam</th>
+              <th>Waktu</th>
               <th>Warna</th>
             </tr>
             <tr>
@@ -305,7 +305,14 @@
             <h2>Grafik Ketinggian</h2>
         </div>
         <div class="modal-body">
-            <canvas id="chart8" height="80px"></canvas>
+          <table id="myTableA">
+            <tr class="headTab">
+              <th>Nilai</th>
+              <th>Waktu</th>
+            </tr>
+            <tr>
+            </tr>
+          </table>
         </div>
     </div>
 </div>

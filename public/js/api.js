@@ -330,7 +330,7 @@ async function getKondisi() {
       var cell31 = row1.insertCell(2);
       cell11.innerHTML = data7.array[0].nilai;
       cell21.innerHTML = data7.array[0].tanggal;
-      if (xx1 > 5) {
+      if (xx1 > 24) {
         document.getElementById("myTable1").deleteRow(1);
       }
       if (data7.array[0].nilai == 'basah') {
@@ -344,25 +344,40 @@ async function getKondisi() {
     }
     inc1 = inc1 + 1;
 }
+let firstTime8 = true;
+var incc = 0;
 async function getKetinggianAlat() {
     const response10 = await fetch(url_ketinggian);
     const data10 = await response10.json();
     //
     document.getElementById('uniq8').textContent = data10.latest;
 
-    console.log(data10.latest);
-    // for (var i = 0; i < 5; i++) {
-    //     xl.push(data.array[i].tanggal);
-    //     yl.push(data.array[i].nilai);
-    // }
-    //
-    // if (xl.length > 5) {
-    //     for (var i = 0; i < 5; i++) {
-    //         xl.shift();
-    //         yl.shift();
-    //     }
-    // }
-    // myChart.update();
+    // var x1 = document.getElementById("myTable1").rows.length;
+    var legA = data10.array.length;
+    var tableA = document.getElementById("myTableA");
+    var xxf = document.getElementById("myTableA").rows.length;
+
+    if(firstTime8){
+      for (var i = 0; i <= legA-1; i++) {
+        var rowA = tableA.insertRow(1);
+        var cell1A = rowA.insertCell(0);
+        var cell2A = rowA.insertCell(1);
+        cell1A.innerHTML = data10.array[i].nilai;
+        cell2A.innerHTML = data10.array[i].tanggal;
+      }
+      firstTime8 = false;
+    }else if(incc > 119 ){
+      var rowA = tableA.insertRow(1);
+      var cell1A = rowA.insertCell(0);
+      var cell2A = rowA.insertCell(1);
+      cell1A.innerHTML = data10.array[0].nilai;
+      cell2A.innerHTML = data10.array[0].tanggal;
+      if (xxf > 24) {
+        document.getElementById("myTableA").deleteRow(1);
+      }
+      incc = 0;
+    }
+    incc = incc + 1;
 }
 
 function getAll() {
