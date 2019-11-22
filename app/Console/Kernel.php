@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        Commands\HourlyUpdate::class,
+        Commands\DailyUpdate::class
     ];
 
     /**
@@ -26,6 +28,10 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('hour:create')
+            ->hourlyAt(59);
+        $schedule->command('daily:create')
+            ->dailyAt('23:59');
     }
 
     /**
