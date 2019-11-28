@@ -28,7 +28,7 @@ class AWSController extends Controller
         $all = ArahAngin::whereDate('tanggal', date('Y-m-d'))->pluck('nilai');
         $array = ArahAngin::orderBy('id', 'desc')->take(60)->get();
         $latest = ArahAngin::orderBy('id', 'desc')->first();
-
+//        dd(Carbon::now()->format('H:i:s.u'));
         if ($latest != null) {
             $latest = $latest->nilai;
         }
@@ -103,7 +103,7 @@ class AWSController extends Controller
             $rata_rata = number_format(array_sum($nilai) / count($nilai), 2,
                 '.', '');
 
-            if (count($nilai) == 1440) {
+            if (Carbon::now()->format('H:i:s') == "23:59:30") {
                 $var = new SuhuHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
@@ -152,7 +152,7 @@ class AWSController extends Controller
             $rata_rata = number_format(array_sum($nilai) / count($nilai), 2,
                 '.', '');
 
-            if (count($nilai) == 1440) {
+            if (Carbon::now()->format('H:i:s') == "23:59:30") {
                 $var = new KelembabanHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
@@ -201,7 +201,7 @@ class AWSController extends Controller
             $rata_rata = number_format(array_sum($nilai) / count($nilai), 2,
                 '.', '');
 
-            if (count($nilai) == 1440) {
+            if (Carbon::now()->format('H:i:s') == "23:59:30") {
                 $var = new TekananUdaraHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
@@ -253,7 +253,7 @@ class AWSController extends Controller
             
             $rata_rata = ($rata_rata / 1023) * 100;
 
-            if (count($nilai) == 1440) {
+            if (Carbon::now()->format('H:i:s') == "23:59:30") {
                 $var = new IntensitasCahayaHarian();
                 $var->rata_rata = $rata_rata;
                 $var->tanggal = Carbon::today();
@@ -295,7 +295,7 @@ class AWSController extends Controller
             $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
         }
 
-        if (count($all) == 60) {
+        if (Carbon::now()->format('i:s') == "59:30") {
             $c = array_count_values($all);
             $rata_rata = array_search(max($c), $c);
 
@@ -339,7 +339,7 @@ class AWSController extends Controller
             $rh->tanggal =  Carbon::parse($rh->tanggal)->format('l, d F y');
         }
 
-        if (count($all) == 60) {
+        if (Carbon::now()->format('i:s') == "59:30") {
             $c = array_count_values($all);
             $rata_rata = array_search(max($c), $c);
 
